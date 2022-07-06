@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Kevin Qu">
+    <meta property="og:url" content="https://kevinqu.com">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@500;600;700&family=Fira+Mono&family=Nunito:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- css reset -->
+    <link rel="stylesheet" href="/css/reset.css">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="/css/contact.css">
+
+    <!-- website -->
+    <title>Kevin Qu</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+
+    <!-- styles (with ejs) -->
+    <% if (status==='success') { %>
+    <style>
+        h1 {
+            color: #8df18d;
+        }
+    </style>
+    <% } else { %>
+    <style>
+        h1 {
+            color: #f18d8d;
+        }
+    </style>
+    <% } %>
+</head>
+
+<body>
+    <h1><%= status %></h1>
+
+    <% if (status==='success') { %>
+    <p>Your message was successfully sent. Thank you!</p>
+    <% } else if (status==='error') { %>
+    <p>Sorry, there was an error sending your message. Please try again later.</p>
+    <% } %>
+
+    <a href="/">Go Back</a>
+</body>
+
+</html>

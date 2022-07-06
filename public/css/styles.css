@@ -1,0 +1,359 @@
+/* -------------------------
+GLOBAL
+------------------------- */
+
+:root {
+	--lightBlack: #252525;
+	--mediumBlack: #1f1f1f;
+	--darkBlack: #141414;
+	--lightWhite: #dbdbdb;
+	--mediumWhite: #cecece;
+	--darkWhite: #aeaeae;
+	--blurple: #9594e4;
+	--blurpleGradient: linear-gradient(90deg, rgb(151, 148, 228) 0%, rgb(104, 204, 224) 100%);
+}
+
+::selection {
+	background: var(--lightBlack);
+}
+
+::-webkit-scrollbar {
+	background: transparent;
+	width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #232323;
+	border-radius: 8px;
+}
+
+body {
+	font-family: 'Nunito';
+	font-kerning: none;
+	line-height: 1.4;
+	background: var(--darkBlack);
+	color: var(--lightWhite);
+	text-align: center;
+}
+
+section {
+	padding-top: 2.5vh;
+}
+
+img {
+	user-select: none;
+}
+
+/* -------------------------
+TYPOGRAPHY
+------------------------- */
+
+h1 {
+	font-family: 'Encode Sans SC';
+	font-weight: 800;
+	font-size: 86px;
+	user-select: none;
+	background: var(--blurpleGradient);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+
+h2 {
+	font-family: 'Encode Sans SC';
+	font-weight: 600;
+	font-size: 48px;
+	margin: 5vh 0 22px 0;
+	width: 100%;
+	background-color: #1a1a1a;
+	border-radius: 4px;
+	padding: 8px 0;
+}
+
+p {
+	font-size: 22px;
+	color: var(--mediumWhite);
+}
+
+a {
+	color: var(--blurple);
+	text-decoration: none;
+}
+
+a:hover {
+	color: #817acf;
+}
+
+/* -------------------------
+BUTTONS
+------------------------- */
+
+button {
+	background: none;
+	color: var(--lightWhite);
+	font-size: 16px;
+	font-weight: 500;
+	padding: 10px 112px;
+	margin: 26px 8px 26px 0;
+	border: 1px solid var(--mediumWhite);
+	text-transform: uppercase;
+	width: 30%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	outline: none;
+	border-radius: 2px;
+	user-select: none;
+}
+
+button:hover, button:focus {
+	background-color: var(--lightWhite);
+	color: var(--darkBlack);
+	transition: all 200ms ease;
+}
+
+button:active {
+	background-color: var(--darkWhite);
+	border: 1px solid var(--darkWhite);
+	transition: all 200ms ease;
+}
+
+/* -------------------------
+NAVBAR
+------------------------- */
+
+#mainNav {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	font-size: 20px;
+	padding-top: 28px;
+	height: 10vh;
+}
+
+#mainNav .navbar-nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+#navOptions {
+	display: flex;
+	justify-content: space-between;
+}
+
+#mainNav .nav-link {
+	padding-left: 0;
+	padding-right: 0;
+	padding-bottom: 4px;
+	margin-right: 36px;
+	cursor: pointer;
+	position: relative;
+	user-select: none;
+	display: flex;
+	align-items: center;
+	color: var(--lightWhite);
+}
+
+#mainNav #contactNavLink {
+	margin-right: 0;
+}
+
+#mainNav .nav-link::after {
+	background-color: var(--mediumWhite);
+	content: "";
+	width: 0;
+	height: 2px;
+	left: 0;
+	bottom: 0;
+	transition: width 300ms ease;
+	position: absolute;
+}
+
+#mainNav .nav-link:hover::after {
+	width: 100%;
+}
+
+/* -------------------------
+LANDING SCREEN
+------------------------- */
+
+#landing {
+	height: 90vh;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#landingText {
+	width: 100%;
+	height: 70vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #171717;
+	padding: 0 20vw;
+	border-radius: 8px;
+	margin-bottom: 5vh;
+}
+
+#intro {
+	font-weight: 500;
+	font-size: 22px;
+}
+
+#filler {
+	height: 5vh;
+}
+
+/* -------------------------
+ABOUT SECTION
+------------------------- */
+
+#about p {
+	background-color: #171717;
+	border-radius: 4px;
+	padding: 36px 42px;
+	width: 100%;
+	text-align: left;
+	font-size: 22px;
+}
+
+/* -------------------------
+WORKS SECTION (W/ CARDS)
+------------------------- */
+
+#works .card {
+	background: none;
+	border: none;
+}
+
+#works .cardInner {
+	height: 100%;
+	background: var(--mediumBlack);
+	padding: 22px;
+	border: 1px solid var(--lightBlack);
+	margin-top: 24px;
+	border-radius: 8px;
+	position: relative;
+}
+
+#works .cardInner:hover {
+	background: var(--lightBlack);
+	cursor: pointer;
+	transition: background 300ms ease;
+}
+
+#works h3 {
+	font-family: 'Encode Sans SC';
+	font-size: 22px;
+	font-weight: 600;
+	margin-bottom: 8px;
+	text-align: left;
+}
+
+#works .card p {
+	font-size: 16px;
+	text-align: left;
+}
+
+#works .stretched-link:hover {
+	color: var(--blurple);
+}
+
+.thumbnail {
+	height: 256px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-bottom: 16px;
+	border-radius: 8px;
+}
+
+#aftermath {
+	background-image: url(/img/aftermath.png);
+}
+
+#trivia {
+	background-image: url(/img/trivia.png);
+}
+
+#gpacalc {
+	background-image: url(/img/gpacalc.png);
+	background-position: top left;
+}
+
+/* -------------------------
+CONTACT SECTION
+------------------------- */
+
+/* contact form */
+/* for some of the following, '#contact' selector is used to override assigned bootstrap 'form-control' class (specificity) */
+
+#contact .container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#contact form {
+	margin-top: 16px;
+	background-color: #171717;
+	border-radius: 4px;
+	padding: 36px 25vw;
+	width: 100%;
+	text-align: left;
+}
+
+label {
+	font-size: 16px;
+	margin: 0 0 4px 2px;
+	user-select: none;
+	color: var(--mediumWhite);
+	text-align: left;
+}
+
+#contact input, #contact textarea {
+	background-color: #232323;
+	color: var(--mediumWhite);
+	border: none;
+	margin-bottom: 14px;
+}
+
+#contact input::selection, #contact textarea::selection {
+	background: var(--mediumWhite);
+	color: var(--darkBlack);
+}
+
+#contact input::placeholder, #contact textarea::placeholder {
+	color: var(--darkWhite);
+	font-weight: 300;
+	font-size: 16px;
+}
+
+#contact button {
+	margin: 14px 0 0 0;
+	width: 100%;
+}
+
+/* -------------------------
+FOOTER
+------------------------- */
+
+footer {
+	margin-top: 42px;
+}
+
+footer p {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 16px;
+	height: 15vh;
+	width: 100%;
+	border-top: 1px solid var(--darkWhite);
+}

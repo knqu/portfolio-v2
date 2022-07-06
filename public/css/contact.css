@@ -1,0 +1,71 @@
+/* -------------------------
+GLOBAL
+------------------------- */
+
+:root {
+    --lightBlack: #252525;
+    --mediumBlack: #1f1f1f;
+    --darkBlack: #141414;
+    --lightWhite: #dbdbdb;
+    --mediumWhite: #cecece;
+    --darkWhite: #aeaeae;
+    --success: #8df18d;
+    --blurple: #9594e4;
+    --blurpleGradient: linear-gradient(90deg, rgb(151, 148, 228) 0%, rgb(104, 204, 224) 100%);
+}
+
+::selection {
+    background: var(--lightBlack);
+}
+
+::-webkit-scrollbar {
+    background: transparent;
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #232323;
+    border-radius: 8px;
+}
+
+body {
+    font-family: 'Nunito';
+    font-kerning: none;
+    line-height: 1.4;
+    background: var(--darkBlack);
+    color: var(--lightWhite);
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* -------------------------
+TYPOGRAPHY
+------------------------- */
+
+h1 {
+    font-family: 'Encode Sans SC';
+    font-weight: 800;
+    font-size: 72px;
+    user-select: none;
+}
+
+p {
+    font-size: 24px;
+    color: var(--mediumWhite);
+    border-top: 1px solid var(--mediumWhite);
+    padding-top: 12px;
+}
+
+a {
+    font-size: 24px;
+    color: var(--blurple);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #817acf;
+}

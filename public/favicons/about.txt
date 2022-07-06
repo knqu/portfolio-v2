@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Days One
+- Font Author: Copyright (c) 2009 by Alexander Kalachev, Alexey Maslov, Jovanny Lemonad. All rights reserved.
+- Font Source: http://fonts.gstatic.com/s/daysone/v10/mem9YaCnxnKRiYZOCLYVeLkWVNBt.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
