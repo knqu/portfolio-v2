@@ -311,10 +311,8 @@ CONTACT SECTION
 
 label {
 	font-size: 16px;
-	margin: 0 0 4px 2px;
 	user-select: none;
-	color: var(--mediumWhite);
-	text-align: left;
+	color: var(--darkWhite);
 }
 
 #contact input, #contact textarea {
@@ -322,17 +320,16 @@ label {
 	color: var(--mediumWhite);
 	border: none;
 	margin-bottom: 14px;
+	padding-left: 14px;
+}
+
+#contact textarea {
+	height: 144px;
 }
 
 #contact input::selection, #contact textarea::selection {
 	background: var(--mediumWhite);
 	color: var(--darkBlack);
-}
-
-#contact input::placeholder, #contact textarea::placeholder {
-	color: var(--darkWhite);
-	font-weight: 300;
-	font-size: 16px;
 }
 
 #contact button {

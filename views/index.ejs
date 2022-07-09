@@ -136,19 +136,23 @@
             <h2>Contact</h2>
 
             <form action="/contact" method="POST" autocomplete="off" id="contactForm">
-                <label for="name">Full name</label>
-                <input type="text" id="name" class="form-control" name="name" placeholder="Kevin Qu" maxlength="100"
-                    required>
+                <div class="form-floating">
+                    <input type="text" id="name" class="form-control" name="name" placeholder="Kevin Qu" maxlength="100"
+                        required>
+                    <label for="name">Full name</label>
+                </div>
 
+                <div class="form-floating">
+                    <input type="email" id="email" class="form-control" name="email"
+                        placeholder="example@email.provider" minlength="5" maxlength="100" required>
+                    <label for="email">Email</label>
+                </div>
 
-                <label for="email">Email</label>
-                <input type="email" id="email" class="form-control" name="email" placeholder="email@provider.com"
-                    minlength="5" maxlength="100" required>
-
-
-                <label for="body">Message</label>
-                <textarea id="body" class="form-control" name="body" placeholder="Type here" rows="4" cols="30"
-                    maxlength="1000" required></textarea>
+                <div class="form-floating">
+                    <textarea id="body" class="form-control" name="body" rows="4" placeholder="Type here"
+                        maxlength="1000" required></textarea>
+                    <label for="body">Message</label>
+                </div>
 
                 <button>Submit</button>
             </form>
