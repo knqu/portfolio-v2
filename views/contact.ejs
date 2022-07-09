@@ -29,17 +29,19 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
 
     <!-- styles (with ejs) -->
-    <% if (status==='success') { %>
+    <% if (status === 'success') { %>
     <style>
         h1 {
             color: #8df18d;
         }
+
     </style>
     <% } else { %>
     <style>
         h1 {
             color: #f18d8d;
         }
+
     </style>
     <% } %>
 </head>
@@ -47,9 +49,9 @@
 <body>
     <h1><%= status %></h1>
 
-    <% if (status==='success') { %>
+    <% if (status === 'success') { %>
     <p>Your message was successfully sent. Thank you!</p>
-    <% } else if (status==='error') { %>
+    <% } else if (status === 'error') { %>
     <p>Sorry, there was an error sending your message. Please try again later.</p>
     <% } %>
 
