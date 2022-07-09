@@ -9,8 +9,9 @@ GLOBAL
     --lightWhite: #dbdbdb;
     --mediumWhite: #cecece;
     --darkWhite: #aeaeae;
-    --success: #8df18d;
     --blurple: #9594e4;
+    --success: #8df18d;
+    --error: #f18d8d;
     --blurpleGradient: linear-gradient(90deg, rgb(151, 148, 228) 0%, rgb(104, 204, 224) 100%);
 }
 
