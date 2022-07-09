@@ -10,6 +10,8 @@ GLOBAL
 	--mediumWhite: #cecece;
 	--darkWhite: #aeaeae;
 	--blurple: #9594e4;
+	--success: #8df18d;
+	--error: #f18d8d;
 	--blurpleGradient: linear-gradient(90deg, rgb(151, 148, 228) 0%, rgb(104, 204, 224) 100%);
 }
 
@@ -315,11 +317,14 @@ label {
 	color: var(--darkWhite);
 }
 
+.form-floating {
+	margin-bottom: 14px;
+}
+
 #contact input, #contact textarea {
 	background-color: #232323;
 	color: var(--mediumWhite);
 	border: none;
-	margin-bottom: 14px;
 	padding-left: 14px;
 }
 
@@ -330,6 +335,24 @@ label {
 #contact input::selection, #contact textarea::selection {
 	background: var(--mediumWhite);
 	color: var(--darkBlack);
+}
+
+.valid-feedback {
+	color: var(--success);
+}
+
+.invalid-feedback {
+	color: var(--error);
+}
+
+.form-control.is-valid,
+.was-validated .form-control:valid {
+	background-image: url(/img/check.png);
+}
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+	background-image: url(/img/error.png);
 }
 
 #contact button {
