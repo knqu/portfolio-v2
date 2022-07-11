@@ -34,142 +34,151 @@
 </head>
 
 <body>
-    <!-- navbar -->
-    <nav class="mainNav navbar navbar-expand-lg container" id="mainNav">
-        <div class="navbar-nav collapse navbar-collapse">
-            <div id="navHome">
-                <div class="nav-item nav-link" id="homeNavLink">Kevin Qu</div>
-            </div>
-            <div id="navOptions">
-                <div class="nav-item nav-link" id="aboutNavLink">About</div>
-                <div class="nav-item nav-link" id="worksNavLink">Works</div>
-                <div class="nav-item nav-link" id="contactNavLink">Contact</div>
-            </div>
+    <div id="preloaderWrapper">
+        <div id="preloader">
+            <div id="preloaderCutter"></div>
+            <div id="preloaderInner"></div>
         </div>
-    </nav>
+    </div>
 
-    <!-- landing screen -->
-    <section id="landing">
-        <div class="container">
-            <div id="landingText">
-                <h1>Hi, I'm Kevin</h1>
-                <p id="intro">I'm a computer science student who enjoys working with web development,
-                    cybersecurity, and game development.</p>
-                <button id="exploreBtn">Explore</button>
+    <main>
+        <!-- navbar -->
+        <nav class="mainNav navbar navbar-expand-lg container" id="mainNav">
+            <div class="navbar-nav collapse navbar-collapse">
+                <div id="navHome">
+                    <div class="nav-item nav-link" id="homeNavLink">Kevin Qu</div>
+                </div>
+                <div id="navOptions">
+                    <div class="nav-item nav-link" id="aboutNavLink">About</div>
+                    <div class="nav-item nav-link" id="worksNavLink">Works</div>
+                    <div class="nav-item nav-link" id="contactNavLink">Contact</div>
+                </div>
             </div>
-        </div>
+        </nav>
 
-        <div id="filler"></div>
-    </section>
+        <!-- landing screen -->
+        <section id="landing">
+            <div class="container">
+                <div id="landingText">
+                    <h1>Hi, I'm Kevin</h1>
+                    <p id="intro">I'm a computer science student who enjoys working with web development,
+                        cybersecurity, and game development.</p>
+                    <button id="exploreBtn">Explore</button>
+                </div>
+            </div>
 
-    <!-- about section -->
-    <section id="about">
-        <div class="container">
-            <h2>About</h2>
-            <p>Hello! My name is Kevin, and I am currently a high school student in the United States. I am working
-                on
-                multiple computer science projects, some of which you can view on my <a href="https://github.com/knqu/"
-                    target="_blank" rel="noopener noreferrer">GitHub</a>. I am
-                self-studying the web development
-                languages (HTML/CSS/JS), along with some associated technologies like MongoDB. I am also learning
-                game
-                development (with PhaserJS and Unity), Python, and cybersecurity.</p>
-        </div>
-    </section>
+            <div id="filler"></div>
+        </section>
 
-    <!-- works section -->
-    <section id="works">
-        <div class="container">
-            <h2>Works</h2>
+        <!-- about section -->
+        <section id="about">
+            <div class="container">
+                <h2>About</h2>
+                <p>Hello! My name is Kevin, and I am currently a high school student in the United States. I am working
+                    on
+                    multiple computer science projects, some of which you can view on my <a
+                        href="https://github.com/knqu/" target="_blank" rel="noopener noreferrer">GitHub</a>. I am
+                    self-studying the web development
+                    languages (HTML/CSS/JS), along with some associated technologies like MongoDB. I am also learning
+                    game
+                    development (with PhaserJS and Unity), Python, and cybersecurity.</p>
+            </div>
+        </section>
 
-            <div class="row">
-                <div class="card col-4">
-                    <div class="cardInner">
-                        <div id="aftermath" class="card-body thumbnail"></div>
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="https://knqu.github.io/aftermath/" class="stretched-link"
-                                    target="_blank" rel="noopener noreferrer">Aftermath</a>
-                            </h3>
-                            <p class="card-text">Aftermath was my first brush with Phaser, a JavaScript
-                                framework for making games on the web. In this game, the player takes the role of
-                                a hero trying to survive multiple waves of enemy knights of varying stats.</p>
+        <!-- works section -->
+        <section id="works">
+            <div class="container">
+                <h2>Works</h2>
+
+                <div class="row">
+                    <div class="card col-4">
+                        <div class="cardInner">
+                            <div id="aftermath" class="card-body thumbnail"></div>
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="https://knqu.github.io/aftermath/"
+                                        class="stretched-link" target="_blank" rel="noopener noreferrer">Aftermath</a>
+                                </h3>
+                                <p class="card-text">Aftermath was my first brush with Phaser, a JavaScript
+                                    framework for making games on the web. In this game, the player takes the role of
+                                    a hero trying to survive multiple waves of enemy knights of varying stats.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card col-4">
+                        <div class="cardInner">
+                            <div id="trivia" class="card-body thumbnail"></div>
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="https://knqu.github.io/apEuropeanHistoryTrivia/"
+                                        class="stretched-link" target="_blank" rel="noopener noreferrer">AP European
+                                        History
+                                        Trivia</a>
+                                </h3>
+                                <p class="card-text">AP European History Trivia is a web game I made for my AP
+                                    European History final project. Other than GSAP, which I used to create the
+                                    animations involved, this project was coded from scratch in vanilla JS.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card col-4">
+                        <div class="cardInner">
+                            <div id="gpacalc" class="card-body thumbnail"></div>
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="https://github.com/knqu/gpacalc/" class="stretched-link"
+                                        target="_blank" rel="noopener noreferrer">GpaCalc</a></h3>
+                                <p class="card-text">Gpacalc was my first project with Python that I created for my
+                                    compter science class's semester one summative project. It combines the rich and
+                                    openpyxl libraries with self-written code to produce a colorful command-line based
+                                    GPA calculator.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="card col-4">
-                    <div class="cardInner">
-                        <div id="trivia" class="card-body thumbnail"></div>
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="https://knqu.github.io/apEuropeanHistoryTrivia/"
-                                    class="stretched-link" target="_blank" rel="noopener noreferrer">AP European
-                                    History
-                                    Trivia</a>
-                            </h3>
-                            <p class="card-text">AP European History Trivia is a web game I made for my AP
-                                European History final project. Other than GSAP, which I used to create the
-                                animations involved, this project was coded from scratch in vanilla JS.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card col-4">
-                    <div class="cardInner">
-                        <div id="gpacalc" class="card-body thumbnail"></div>
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="https://github.com/knqu/gpacalc/" class="stretched-link"
-                                    target="_blank" rel="noopener noreferrer">GpaCalc</a></h3>
-                            <p class="card-text">Gpacalc was my first project with Python that I created for my
-                                compter science class's semester one summative project. It combines the rich and
-                                openpyxl libraries with self-written code to produce a colorful command-line based
-                                GPA calculator.</p>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- contact section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact</h2>
+        <!-- contact section -->
+        <section id="contact">
+            <div class="container">
+                <h2>Contact</h2>
 
-            <form action="/contact" method="POST" autocomplete="off" id="contactForm" class="needs-validation"
-                novalidate>
-                <div class="form-floating">
-                    <input type="text" id="name" class="form-control" name="name" placeholder="Kevin Qu" maxlength="100"
-                        required>
-                    <label for="name">Full name</label>
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="invalid-feedback">Please enter your full name.</div>
-                </div>
+                <form action="/contact" method="POST" autocomplete="off" id="contactForm" class="needs-validation"
+                    novalidate>
+                    <div class="form-floating">
+                        <input type="text" id="name" class="form-control" name="name" placeholder="Kevin Qu"
+                            maxlength="100" required>
+                        <label for="name">Full name</label>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please enter your full name.</div>
+                    </div>
 
-                <div class="form-floating">
-                    <input type="email" id="email" class="form-control" name="email"
-                        placeholder="example@email.provider" maxlength="100" required>
-                    <label for="email">Email</label>
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="invalid-feedback">Please enter a valid email.</div>
-                </div>
+                    <div class="form-floating">
+                        <input type="email" id="email" class="form-control" name="email"
+                            placeholder="example@email.provider" maxlength="100" required>
+                        <label for="email">Email</label>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please enter a valid email.</div>
+                    </div>
 
-                <div class="form-floating">
-                    <textarea id="body" class="form-control" name="body" rows="4" placeholder="Type here"
-                        maxlength="1000" required></textarea>
-                    <label for="body">Message</label>
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="invalid-feedback">Please enter a message.</div>
-                </div>
+                    <div class="form-floating">
+                        <textarea id="body" class="form-control" name="body" rows="4" placeholder="Type here"
+                            maxlength="1000" required></textarea>
+                        <label for="body">Message</label>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please enter a message.</div>
+                    </div>
 
-                <button>Submit</button>
-            </form>
-        </div>
-    </section>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </section>
 
-    <!-- footer -->
-    <footer class="container">
-        <p>&copy; Kevin Qu 2022. All rights reserved.</p>
-    </footer>
+        <!-- footer -->
+        <footer class="container">
+            <p>&copy; Kevin Qu 2022. All rights reserved.</p>
+        </footer>
+    </main>
 
     <!-- bootstrap 5 js (with popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -177,8 +186,8 @@
         defer></script>
 
     <!-- gsap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js" defer></script>
 
     <!-- site js -->
     <script src="/js/script.js"></script>
