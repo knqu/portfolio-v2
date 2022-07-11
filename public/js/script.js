@@ -12,13 +12,23 @@ landingText.style.clipPath = 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)';
 landingText.style.opacity = '0';
 landingText.style.transform = 'translateY(25%)';
 
-const tl = gsap.timeline({ defaults: { duration: 2, ease: 'back' } });
-tl
-    .to('#landingText', {
-        'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
-        opacity: 1,
-        y: 0
-    });
+const mainNav = document.querySelector('#mainNav');
+mainNav.style.opacity = '0';
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.to('#landingText', {
+    'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
+    opacity: 1,
+    y: 0,
+    duration: 2,
+    ease: 'back'
+});
+
+gsap.to('#mainNav', {
+    opacity: 1,
+    duration: 2
+});
 
 // links and buttons: uses js instead of <a> to circumvent url change
 
