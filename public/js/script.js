@@ -1,13 +1,29 @@
 // section selectors
+
 const about = document.querySelector('#about');
 const works = document.querySelector('#works');
 const contact = document.querySelector('#contact');
 
-// on click selectors
-const navLinks = document.querySelectorAll('.nav-link');
-const exploreBtn = document.querySelector('#exploreBtn');
+// gsap animations
+// gsap-related css set in javascript so website will be unaffected if js were to be disabled
+
+const landingText = document.querySelector('#landingText');
+landingText.style.clipPath = 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)';
+landingText.style.opacity = '0';
+landingText.style.transform = 'translateY(25%)';
+
+const tl = gsap.timeline({ defaults: { duration: 2, ease: 'back' } });
+tl
+    .to('#landingText', {
+        'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
+        opacity: 1,
+        y: 0
+    });
 
 // links and buttons: uses js instead of <a> to circumvent url change
+
+const navLinks = document.querySelectorAll('.nav-link');
+const exploreBtn = document.querySelector('#exploreBtn');
 
 for (let el of navLinks) {
     el.addEventListener('click', function () {
