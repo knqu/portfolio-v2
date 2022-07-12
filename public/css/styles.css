@@ -467,6 +467,19 @@ Credit & License: https://codepen.io/Maseone/pen/vEjqre
 	background-color: var(--darkBlack);
 }
 
+#subPreloaderText {
+	position: absolute;
+	bottom: 20vh;
+	color: var(--error);
+	text-align: center;
+	width: 100%;
+	padding: 0 20vw;
+	font-size: 22px;
+	font-family: 'Encode Sans SC';
+	font-weight: 500;
+	letter-spacing: 1px;
+}
+
 @-webkit-keyframes inneranim {
 	0% {
 		top: 30px;

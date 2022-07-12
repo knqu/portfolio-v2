@@ -9,6 +9,7 @@ const contact = document.querySelector('#contact');
 
 const preloader = document.querySelector('#preloader');
 const preloaderWrapper = document.querySelector('#preloaderWrapper');
+const subPreloaderText = document.querySelector('#subPreloaderText');
 
 const body = document.querySelector('body');
 body.style.height = '100vh';
@@ -28,7 +29,7 @@ window.addEventListener('load', function () {
 
     const tl = gsap.timeline({ defaults: { duration: 2 } });
     tl
-        .to(preloader, {
+        .to(preloaderWrapper, {
             opacity: 0
         })
         .to(main, {
@@ -47,6 +48,12 @@ window.addEventListener('load', function () {
         preloaderWrapper.remove();
     }, 2000);
 });
+
+setTimeout(function () {
+    if (main.style.opacity == 0) {
+        subPreloaderText.innerText = 'Please check your connection and that your antivirus is not blocking any site assets.';
+    }
+}, 4000);
 
 // links and buttons: uses js instead of <a> to circumvent url change
 
