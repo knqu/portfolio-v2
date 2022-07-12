@@ -10,6 +10,10 @@ const contact = document.querySelector('#contact');
 const preloader = document.querySelector('#preloader');
 const preloaderWrapper = document.querySelector('#preloaderWrapper');
 
+const body = document.querySelector('body');
+body.style.height = '100vh';
+body.style.overflow = 'hidden';
+
 const main = document.querySelector('main');
 main.style.opacity = '0';
 
@@ -17,6 +21,7 @@ const landingText = document.querySelector('#landingText');
 landingText.style.clipPath = 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)';
 landingText.style.transform = 'translateY(25%)';
 
+window.scrollTo({ top: 0, behavior: 'auto' });
 // all gsap utilities must be executed after page has loaded due to scripts being deferred
 window.addEventListener('load', function () {
     gsap.registerPlugin(ScrollTrigger);
@@ -36,6 +41,8 @@ window.addEventListener('load', function () {
         }, '<');
 
     setTimeout(function () {
+        body.style.height = '100%';
+        body.style.overflow = 'auto';
         preloader.remove();
         preloaderWrapper.remove();
     }, 2000);
