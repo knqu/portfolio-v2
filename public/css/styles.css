@@ -158,7 +158,7 @@ NAVBAR
 	color: var(--lightWhite);
 }
 
-#mainNav #contactNavLink {
+#mainNav #contactNavLink, #mainNav #homeNavLink {
 	margin-right: 0;
 }
 
@@ -197,14 +197,13 @@ LANDING SCREEN
 	justify-content: center;
 	align-items: center;
 	background-color: #171717;
-	padding: 0 20vw;
+	padding: 0 19vw;
 	border-radius: 8px;
 	margin-bottom: 5vh;
 }
 
 #intro {
 	font-weight: 500;
-	font-size: 22px;
 }
 
 #filler {
@@ -221,7 +220,6 @@ ABOUT SECTION
 	padding: 36px 42px;
 	width: 100%;
 	text-align: left;
-	font-size: 22px;
 }
 
 /* -------------------------
@@ -549,5 +547,139 @@ Credit & License: https://codepen.io/Maseone/pen/vEjqre
 
 	100% {
 		opacity: 0;
+	}
+}
+
+/* -------------------------
+MEDIA QUERIES
+------------------------- */
+
+@media (max-width: 1199.98px) {
+	h1 {
+		font-size: 74px;
+	}
+
+	p, #mainNav {
+		font-size: 20px;
+	}
+
+	button {
+		font-size: 16px;
+		padding: 10px 106px;
+		margin: 22px 6px 22px 0;
+	}
+
+	h2 {
+		font-size: 42px;
+	}
+
+	#works h3 {
+		font-size: 22px;
+	}
+
+	#works .card p, label, footer p, #contact input, #contact textarea, .valid-feedback, .invalid-feedback {
+		font-size: 16px;
+	}
+
+	#contact form {
+		padding: 36px 19vw;
+	}
+}
+
+@media (max-width: 991.98px) {
+	h1 {
+		font-size: 62px;
+	}
+
+	p, #mainNav {
+		font-size: 18px;
+	}
+
+	#mainNav, #filler {
+		display: none;
+	}
+
+	#landing {
+		height: 100vh;
+	}
+
+	#landingText {
+		padding: 0 12vw;
+		margin-bottom: 2.5vh;
+	}
+
+	button {
+		font-size: 14px;
+		padding: 8px 98px;
+		margin: 18px 4px 18px 0;
+	}
+
+	h2 {
+		font-size: 36px;
+	}
+
+	#works h3 {
+		font-size: 18px;
+	}
+
+	#works .card p, label, footer p, #contact input, #contact textarea, .valid-feedback, .invalid-feedback {
+		font-size: 14px;
+	}
+
+	#contact form {
+		padding: 36px 12vw;
+	}
+
+	footer p {
+		height: 10vh;
+	}
+}
+
+@media (max-width: 768.98px) {
+	h1 {
+		font-size: 44px;
+	}
+
+	p, #mainNav {
+		font-size: 16px;
+	}
+
+	#mainNav, #filler {
+		display: none;
+	}
+
+	#landing {
+		height: 100vh;
+	}
+
+	#landingText {
+		padding: 0 8vw;
+		margin-bottom: 2.5vh;
+	}
+
+	button {
+		font-size: 12px;
+		padding: 8px 92px;
+		margin: 16px 4px 16px 0;
+	}
+
+	h2 {
+		font-size: 30px;
+	}
+
+	#works h3 {
+		font-size: 18px;
+	}
+
+	#works .card p, label, footer p, #contact input, #contact textarea, .valid-feedback, .invalid-feedback {
+		font-size: 14px;
+	}
+
+	#contact form {
+		padding: 36px 8vw;
+	}
+
+	footer p {
+		height: 10vh;
 	}
 }
