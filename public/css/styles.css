@@ -86,6 +86,7 @@ a {
 
 a:hover {
 	color: #817acf;
+	transition: color 200ms ease-in;
 }
 
 /* -------------------------
@@ -113,13 +114,13 @@ button {
 button:hover, button:focus {
 	background-color: var(--lightWhite);
 	color: var(--darkBlack);
-	transition: all 200ms ease;
+	transition: all 200ms ease-in;
 }
 
 button:active {
 	background-color: var(--darkWhite);
 	border: 1px solid var(--darkWhite);
-	transition: all 200ms ease;
+	transition: all 200ms ease-in;
 }
 
 /* -------------------------
@@ -169,7 +170,7 @@ NAVBAR
 	height: 2px;
 	left: 0;
 	bottom: 0;
-	transition: width 300ms ease;
+	transition: width 200ms ease-in;
 	position: absolute;
 }
 
@@ -244,7 +245,7 @@ WORKS SECTION (W/ CARDS)
 #works .cardInner:hover {
 	background: var(--lightBlack);
 	cursor: pointer;
-	transition: background 300ms ease;
+	transition: background 200ms ease-in;
 }
 
 #works h3 {
