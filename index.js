@@ -48,7 +48,7 @@ app.post('/contact', async function (req, res) {
 
 app.get('/contact', function (req, res) {
     if (!contactStatus) {
-        res.redirect('/#contact');
+        res.redirect('/');
     } else {
         res.render('contact', { status: contactStatus });
     }
