@@ -52,7 +52,7 @@ TYPOGRAPHY
 
 h1 {
 	font-family: 'Encode Sans SC';
-	font-weight: 800;
+	font-weight: 700;
 	font-size: 86px;
 	user-select: none;
 	background: var(--blurpleGradient);
@@ -344,7 +344,7 @@ label {
 
 .form-control.is-valid,
 .was-validated .form-control:valid {
-	background-image: url(/img/check.png);
+	background-image: url(/img/success.png);
 }
 
 .form-control.is-invalid,
