@@ -54,11 +54,19 @@ h1 {
     user-select: none;
 }
 
+hr {
+    height: 2px;
+    width: 50vw;
+    background-color: var(--darkWhite);
+    border: none;
+    margin: 4px 0;
+}
+
 p {
     font-size: 24px;
     color: var(--mediumWhite);
-    border-top: 1px solid var(--mediumWhite);
-    padding-top: 12px;
+    margin-top: 12px;
+    padding: 0 24px;
 }
 
 a {
@@ -69,4 +77,58 @@ a {
 
 a:hover {
     color: #817acf;
+}
+
+@media (max-width: 1199.98px) {
+    h1 {
+        font-size: 66px;
+    }
+
+    hr {
+        width: 60vw;
+    }
+
+    p, a {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    h1 {
+        font-size: 58px;
+    }
+
+    hr {
+        width: 70vw;
+    }
+
+    p, a {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768.98px) {
+    h1 {
+        font-size: 52px;
+    }
+
+    hr {
+        width: 80vw;
+    }
+
+    p, a {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    hr {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 480.98px) {
+    hr {
+        width: 100vw;
+    }
 }
