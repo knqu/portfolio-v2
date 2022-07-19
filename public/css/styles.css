@@ -237,7 +237,6 @@ WORKS SECTION (W/ CARDS)
 	background: var(--mediumBlack);
 	padding: 22px;
 	border: 1px solid var(--lightBlack);
-	margin-top: 24px;
 	border-radius: 8px;
 	position: relative;
 }
@@ -302,7 +301,6 @@ CONTACT SECTION
 }
 
 #contact form {
-	margin-top: 16px;
 	background-color: #171717;
 	border-radius: 4px;
 	padding: 36px 25vw;
@@ -621,6 +619,14 @@ MEDIA QUERIES
 
 	#works h3 {
 		font-size: 18px;
+	}
+
+	#works .cardInner {
+		margin-bottom: 24px;
+	}
+
+	#works #lastCard {
+		margin-bottom: 0;
 	}
 
 	#works .card p, label, footer p, #contact input, #contact textarea, .valid-feedback, .invalid-feedback {
