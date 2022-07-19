@@ -47,32 +47,29 @@ body {
 TYPOGRAPHY
 ------------------------- */
 
-h1 {
-    font-family: 'Encode Sans SC';
-    font-weight: 800;
-    font-size: 72px;
-    user-select: none;
+img {
+    height: 10vh;
 }
 
-hr {
-    height: 2px;
-    width: 50vw;
-    background-color: var(--darkWhite);
-    border: none;
-    margin: 4px 0;
+h1 {
+    font-family: 'Encode Sans SC';
+    font-weight: 700;
+    font-size: 72px;
+    user-select: none;
+    line-height: 1;
 }
 
 p {
     font-size: 24px;
     color: var(--mediumWhite);
-    margin-top: 12px;
-    padding: 0 24px;
+    padding: 10px 36px 6px 36px;
 }
 
 a {
-    font-size: 24px;
+    font-size: 20px;
     color: var(--blurple);
     text-decoration: none;
+    transition: color 200ms ease-in;
 }
 
 a:hover {
@@ -84,12 +81,12 @@ a:hover {
         font-size: 66px;
     }
 
-    hr {
-        width: 60vw;
+    p {
+        font-size: 22px;
     }
 
-    p, a {
-        font-size: 22px;
+    a {
+        font-size: 19px;
     }
 }
 
@@ -102,8 +99,12 @@ a:hover {
         width: 70vw;
     }
 
-    p, a {
+    p {
         font-size: 20px;
+    }
+
+    a {
+        font-size: 18px;
     }
 }
 
@@ -116,19 +117,11 @@ a:hover {
         width: 80vw;
     }
 
-    p, a {
+    p {
         font-size: 18px;
     }
-}
 
-@media (max-width: 575.98px) {
-    hr {
-        width: 90vw;
-    }
-}
-
-@media (max-width: 480.98px) {
-    hr {
-        width: 100vw;
+    a {
+        font-size: 17px;
     }
 }
