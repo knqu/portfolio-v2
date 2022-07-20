@@ -52,8 +52,12 @@ app.get('/contact', function (req, res) {
     if (!contactStatus) {
         res.redirect('/');
     } else {
-        res.render('contact', { status: contactStatus });
+        res.render('status', { status: contactStatus });
     }
+});
+
+app.use(function (req, res) {
+    res.status(404).render('status', { status: '404' });
 });
 
 app.listen(process.env.PORT, function () {

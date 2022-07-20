@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/css/reset.css">
 
     <!-- custom css -->
-    <link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="/css/status.css">
 
     <!-- website -->
     <title>Kevin Qu</title>
@@ -47,7 +47,11 @@
 </head>
 
 <body>
-    <img src="/img/<%= status %>.png" alt="<%= status %>">
+    <% if (status === 'success') { %>
+    <img src="/img/success.png" alt="Success icon">
+    <% } else { %>
+    <img src="/img/error.png" alt="Error icon">
+    <% } %>
 
     <h1><%= status %></h1>
 
@@ -55,6 +59,8 @@
     <p>Your message was successfully sent. Thank you!</p>
     <% } else if (status === 'error') { %>
     <p>Sorry, something went wrong. Please try again later.</p>
+    <% } else if (status === '404') { %>
+    <p>Sorry, the page you are looking for does not exist.</p>
     <% } %>
 
     <a href="/">Return to kevinqu.com</a>
