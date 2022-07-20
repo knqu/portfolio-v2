@@ -3,6 +3,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 
@@ -17,17 +18,17 @@ mongoose.connect(process.env.DB_URL)
     });
 
 const app = express();
-let contactStatus = null;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/public')));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
 app.get('/', function (req, res) {
+    res.clearCookie('contactStatus');
     res.render('index');
-    contactStatus = null;
 });
 
 app.post('/contact', async function (req, res) {
@@ -37,16 +38,17 @@ app.post('/contact', async function (req, res) {
     let newMessage = new Message({ name: name, email: email, body: body, ip: ip });
     await newMessage.save()
         .then(function () {
-            contactStatus = 'success';
+            res.cookie('contactStatus', 'success', { signed: true });
         })
         .catch(function (err) {
-            contactStatus = 'error';
-            console.log(err);
+            res.cookie('contactStatus', 'error', { signed: true });
         });
     res.redirect('contact');
 });
 
 app.get('/contact', function (req, res) {
+    const { contactStatus = null } = req.signedCookies;
+
     if (!contactStatus) {
         res.redirect('/');
     } else {
