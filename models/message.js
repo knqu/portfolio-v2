@@ -1,9 +1,4 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-}
-
 const mongoose = require('mongoose');
-const nodemailer = require("nodemailer");
 
 const messageSchema = new mongoose.Schema({
     name: {
@@ -33,10 +28,6 @@ const messageSchema = new mongoose.Schema({
         default: Date.now,
         required: true
     }
-});
-
-messageSchema.post('save', async function () {
-    // nodemailer
 });
 
 const Message = mongoose.model('Message', messageSchema);

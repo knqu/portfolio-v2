@@ -8,6 +8,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 const Message = require('./models/message');
+const notify = require('./controllers/notify');
 
 mongoose.connect(process.env.DB_URL)
     .then(function () {
@@ -38,11 +39,16 @@ app.post('/contact', async function (req, res) {
     let newMessage = new Message({ name: name, email: email, body: body, ip: ip });
     await newMessage.save()
         .then(function () {
+            notify.message(name, email, body, ip);
+        })
+        .then(function () {
             res.cookie('contactStatus', 'success', { signed: true });
         })
         .catch(function (err) {
             res.cookie('contactStatus', 'error', { signed: true });
+            notify.alert(err, ip).catch();
         });
+
     res.redirect('contact');
 });
 
