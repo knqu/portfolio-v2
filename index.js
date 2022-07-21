@@ -3,9 +3,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express');
-const cookieParser = require('cookie-parser');
-const path = require('path');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
+const helmet = require('helmet');
+const path = require('path');
 
 const Message = require('./models/message');
 const notify = require('./controllers/notify');
@@ -23,6 +24,14 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(cookieParser(process.env.COOKIE_SECRET));
+
+app.use(helmet());
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+        scriptSrc: ["'self'", 'https://cdn.jsdelivr.net/', 'https://cdnjs.cloudflare.com/'],
+        styleSrc: ["'self'", "'unsafe-inline'", 'https://cdn.jsdelivr.net/', 'https://fonts.googleapis.com/', 'https://fonts.gstatic.com/'],
+    }
+}));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
