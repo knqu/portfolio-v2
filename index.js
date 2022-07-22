@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const path = require('path');
+const mongoSanitize = require('express-mongo-sanitize');
 
 const Message = require('./models/message');
 const notify = require('./controllers/notify');
@@ -23,6 +24,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/public')));
+
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 app.use(helmet());
@@ -31,6 +33,11 @@ app.use(helmet.contentSecurityPolicy({
         scriptSrc: ["'self'", 'https://cdn.jsdelivr.net/', 'https://cdnjs.cloudflare.com/'],
         styleSrc: ["'self'", "'unsafe-inline'", 'https://cdn.jsdelivr.net/', 'https://fonts.googleapis.com/', 'https://fonts.gstatic.com/'],
     }
+}));
+
+app.use(mongoSanitize({
+    allowDots: true,
+    replaceWith: '_'
 }));
 
 app.set('view engine', 'ejs');
