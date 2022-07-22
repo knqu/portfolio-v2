@@ -75,6 +75,11 @@ app.use(function (req, res) {
     res.status(404).render('status', { status: '404' });
 });
 
+app.use(function (err, req, res, next) {
+    notify.alert(err, req.socket.remoteAddress).catch();
+    res.status(500).render('status', { status: '500' });
+});
+
 app.listen(process.env.PORT, function () {
     console.log(`Listening on port ${process.env.PORT}`);
 });
