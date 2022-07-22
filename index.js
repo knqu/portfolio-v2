@@ -41,24 +41,28 @@ app.get('/', function (req, res) {
     res.render('index');
 });
 
-app.post('/contact', async function (req, res) {
-    const { name, email, body } = req.body;
-    const ip = req.socket.remoteAddress;
+app.post('/contact', async function (req, res, next) {
+    try {
+        const { name, email, body } = req.body;
+        const ip = req.socket.remoteAddress;
 
-    let newMessage = new Message({ name: name, email: email, body: body, ip: ip });
-    await newMessage.save()
-        .then(function () {
-            notify.message(name, email, body, ip);
-        })
-        .then(function () {
-            res.cookie('contactStatus', 'success', { signed: true });
-        })
-        .catch(function (err) {
-            res.cookie('contactStatus', 'error', { signed: true });
-            notify.alert(err, ip).catch();
-        });
+        let newMessage = new Message({ name: name, email: email, body: body, ip: ip });
+        await newMessage.save()
+            .then(function () {
+                notify.message(name, email, body, ip);
+            })
+            .then(function () {
+                res.cookie('contactStatus', 'success', { signed: true });
+            })
+            .catch(function (err) {
+                res.cookie('contactStatus', 'error', { signed: true });
+                notify.alert(err, ip).catch();
+            });
 
-    res.redirect('contact');
+        res.redirect('contact');
+    } catch (err) {
+        next(err);
+    }
 });
 
 app.get('/contact', function (req, res) {
