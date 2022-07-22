@@ -59,10 +59,10 @@ app.post('/contact', async function (req, res, next) {
                 notify.message(name, email, body, ip);
             })
             .then(function () {
-                res.cookie('contactStatus', 'success', { signed: true });
+                res.cookie('contactStatus', 'success', { signed: true, secure: true, httpOnly: true });
             })
             .catch(function (err) {
-                res.cookie('contactStatus', 'error', { signed: true });
+                res.cookie('contactStatus', 'error', { signed: true, secure: true, httpOnly: true });
                 notify.alert(err, ip).catch();
             });
 
