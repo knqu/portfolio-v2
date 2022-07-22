@@ -5,18 +5,21 @@ const messageSchema = new mongoose.Schema({
         type: String,
         trim: true,
         required: true,
+        minlength: 2,
         maxlength: 100
     },
     email: {
         type: String,
         trim: true,
         required: true,
+        minlength: 5,
         maxlength: 100
     },
     body: {
         type: String,
         trim: true,
         required: true,
+        minlength: 2,
         maxlength: 1000
     },
     ip: {

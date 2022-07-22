@@ -147,7 +147,7 @@
                     novalidate>
                     <div class="form-floating">
                         <input type="text" id="name" class="form-control" name="name" placeholder="Kevin Qu"
-                            maxlength="100" required>
+                            maxlength="100" minlength="2" required>
                         <label for="name">Full name</label>
                         <div class="valid-feedback">Looks good!</div>
                         <div class="invalid-feedback">Please enter your full name.</div>
@@ -155,7 +155,7 @@
 
                     <div class="form-floating">
                         <input type="email" id="email" class="form-control" name="email"
-                            placeholder="example@email.provider" maxlength="100" required>
+                            placeholder="example@email.provider" minlength="5" maxlength="100" required>
                         <label for="email">Email</label>
                         <div class="valid-feedback">Looks good!</div>
                         <div class="invalid-feedback">Please enter a valid email.</div>
@@ -163,7 +163,7 @@
 
                     <div class="form-floating">
                         <textarea id="body" class="form-control" name="body" rows="4" placeholder="Type here"
-                            maxlength="1000" required></textarea>
+                            minlength="2" maxlength="1000" required></textarea>
                         <label for="body">Message</label>
                         <div class="valid-feedback">Looks good!</div>
                         <div class="invalid-feedback">Please enter a message.</div>
