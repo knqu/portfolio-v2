@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const path = require('path');
 const mongoSanitize = require('express-mongo-sanitize');
+const rateLimit = require('express-rate-limit');
 
 const Message = require('./models/message');
 const notify = require('./controllers/notify');
@@ -43,12 +44,30 @@ app.use(mongoSanitize({
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
+const contactLimiter = rateLimit({
+    windowMs: 60000,
+    max: 1,
+    message: 'To discourage spam, there is a message cooldown of 1 minute.',
+    skipFailedRequests: true,
+    requestWasSuccessful: function (req, res) {
+        const { contactStatus } = req.signedCookies;
+        if (contactStatus === 'error') {
+            return false;
+        } else {
+            return true;
+        }
+    },
+    handler: function (req, res) {
+        res.cookie('contactStatus', '429', { signed: true, secure: true, httpOnly: true });
+        res.redirect('/contact');
+    }
+});
+
 app.get('/', function (req, res) {
-    res.clearCookie('contactStatus');
     res.render('index');
 });
 
-app.post('/contact', async function (req, res, next) {
+app.post('/contact', contactLimiter, async function (req, res, next) {
     try {
         const { name, email, body } = req.body;
         const ip = req.socket.remoteAddress;
@@ -78,6 +97,12 @@ app.get('/contact', function (req, res) {
     if (!contactStatus) {
         res.redirect('/');
     } else {
+        if (contactStatus === 'error') {
+            res.status(500);
+        } else if (contactStatus === '429') {
+            res.status(429);
+        }
+
         res.render('status', { status: contactStatus });
     }
 });

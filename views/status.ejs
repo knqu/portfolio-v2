@@ -65,6 +65,9 @@
     <% } else if (status === '500') {%>
     <p><b style="font-weight:500;">Internal Server Error</b><br>
         Sorry, something went wrong. Please try again later.</p>
+    <% } else if (status === '429') { %>
+    <p><b style="font-weight:500;">Too Many Requests</b><br>
+        To discourage spam, there is a message cooldown of 1 minute.</p>
     <% } %>
 
     <a href="/">Return to kevinqu.com</a>
