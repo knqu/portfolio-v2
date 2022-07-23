@@ -51,11 +51,7 @@ const contactLimiter = rateLimit({
     skipFailedRequests: true,
     requestWasSuccessful: function (req, res) {
         const { contactStatus } = req.signedCookies;
-        if (contactStatus === 'error') {
-            return false;
-        } else {
-            return true;
-        }
+        return contactStatus !== 'error';
     },
     handler: function (req, res) {
         res.cookie('rateLimited', 'true', { signed: true, secure: true, httpOnly: true });
