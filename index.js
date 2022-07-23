@@ -12,6 +12,7 @@ const rateLimit = require('express-rate-limit');
 
 const Message = require('./models/message');
 const notify = require('./controllers/notify');
+const format = require('./controllers/format');
 
 mongoose.connect(process.env.DB_URL)
     .then(function () {
@@ -51,7 +52,7 @@ const contactLimiter = rateLimit({
     skipFailedRequests: true,
     requestWasSuccessful: function (req, res) {
         const { contactStatus } = req.signedCookies;
-        return contactStatus !== 'error';
+        return contactStatus !== 'error' || contactStatus !== 'invalid';
     },
     handler: function (req, res) {
         res.cookie('rateLimited', 'true', { signed: true, secure: true, httpOnly: true });
@@ -65,6 +66,15 @@ app.get('/', function (req, res) {
 
 app.post('/contact', contactLimiter, async function (req, res, next) {
     try {
+        if (!format.check(req.body)) {
+            res.cookie('contactStatus', 'invalid', { signed: true, secure: true, httpOnly: true });
+            res.redirect('/contact');
+        }
+
+        for (let key in req.body) {
+            req.body[key] = format.sanitize(req.body[key]);
+        }
+
         const { name, email, body } = req.body;
         const ip = req.socket.remoteAddress;
 
