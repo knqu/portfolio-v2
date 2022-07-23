@@ -58,7 +58,7 @@ const contactLimiter = rateLimit({
         }
     },
     handler: function (req, res) {
-        res.cookie('contactStatus', '429', { signed: true, secure: true, httpOnly: true });
+        res.cookie('rateLimited', 'true', { signed: true, secure: true, httpOnly: true });
         res.redirect('/contact');
     }
 });
@@ -92,18 +92,20 @@ app.post('/contact', contactLimiter, async function (req, res, next) {
 });
 
 app.get('/contact', function (req, res) {
-    const { contactStatus = null } = req.signedCookies;
+    const { contactStatus = null, rateLimited = false } = req.signedCookies;
 
-    if (!contactStatus) {
+    if (!contactStatus && !rateLimited) {
         res.redirect('/');
     } else {
-        if (contactStatus === 'error') {
-            res.status(500);
-        } else if (contactStatus === '429') {
-            res.status(429);
+        if (rateLimited === 'true') {
+            res.clearCookie('rateLimited', { signed: true, secure: true, httpOnly: true });
+            res.status(429).render('status', { status: '429' });
+        } else {
+            if (contactStatus === 'error') {
+                res.status(500);
+            }
+            res.render('status', { status: contactStatus });
         }
-
-        res.render('status', { status: contactStatus });
     }
 });
 
