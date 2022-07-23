@@ -101,7 +101,7 @@ app.get('/contact', function (req, res) {
     const { contactStatus = null, rateLimited = false } = req.signedCookies;
 
     if (!contactStatus && !rateLimited) {
-        res.redirect('/');
+        res.status(400).redirect('/');
     } else {
         if (rateLimited === 'true') {
             res.clearCookie('rateLimited', { signed: true, secure: true, httpOnly: true });
