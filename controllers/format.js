@@ -1,4 +1,4 @@
-const escape = require('escape-html');
+const escapeHTML = require('escape-html');
 
 module.exports.check = function (reqbody) {
     if (!reqbody.hasOwnProperty('name') || !reqbody.hasOwnProperty('email') || !reqbody.hasOwnProperty('body')) {
@@ -22,5 +22,5 @@ module.exports.check = function (reqbody) {
 };
 
 module.exports.sanitize = function (str) {
-    return escape(str.trim().replace(/\$/g, '&#36;'));
+    return escapeHTML(str.trim()).replace(/\$/g, '&#36;');
 };
