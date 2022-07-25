@@ -344,12 +344,12 @@ label {
 
 .form-control.is-valid,
 .was-validated .form-control:valid {
-	background-image: url(/img/success.png);
+	background-image: url(/img/success.svg);
 }
 
 .form-control.is-invalid,
 .was-validated .form-control:invalid {
-	background-image: url(/img/error.png);
+	background-image: url(/img/error.svg);
 }
 
 #contact button {
