@@ -42,6 +42,47 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+
+    <!-- js disabled -->
+    <noscript>
+        <style>
+            #preloaderWrapper {
+                display: none;
+            }
+
+            #mainNav {
+                display: flex;
+                justify-content: center;
+            }
+
+            #mainNav .navbar-nav {
+                display: none !important;
+            }
+
+            #mainNav noscript p {
+                margin-top: 16px;
+                font-size: 20px;
+            }
+
+            #exploreBtn {
+                display: none;
+            }
+
+            #jsDisabledExploreBtn {
+                cursor: not-allowed;
+                width: 100%;
+            }
+
+            #submitBtn {
+                display: none;
+            }
+
+            #jsDisabledSubmitBtn {
+                cursor: not-allowed;
+            }
+
+        </style>
+    </noscript>
 </head>
 
 <body>
@@ -66,6 +107,10 @@
                     <div class="nav-item nav-link" id="contactNavLink">Contact</div>
                 </div>
             </div>
+
+            <noscript>
+                <p>Please enable JavaScript for the site to work at full functionality.</p>
+            </noscript>
         </nav>
 
         <!-- landing screen -->
@@ -76,6 +121,7 @@
                     <p id="intro">I'm a computer science student who enjoys working with web development,
                         cybersecurity, and game development.</p>
                     <button id="exploreBtn">Explore</button>
+                    <noscript><button id="jsDisabledExploreBtn">JS Disabled</button></noscript>
                 </div>
             </div>
 
@@ -180,7 +226,8 @@
                         <div class="invalid-feedback">Please enter a message.</div>
                     </div>
 
-                    <button>Submit</button>
+                    <button type="submit" id="submitBtn">Submit</button>
+                    <noscript><button type="button" id="jsDisabledSubmitBtn" disabled>JS Disabled</button></noscript>
                 </form>
             </div>
         </section>
