@@ -700,4 +700,10 @@ MEDIA QUERIES
 	footer p {
 		height: 10vh;
 	}
+
+	#subPreloaderText {
+		bottom: 15vh;
+		font-size: 18px;
+		padding: 0 10vw;
+	}
 }
