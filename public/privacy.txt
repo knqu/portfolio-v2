@@ -1,0 +1,14 @@
+# Privacy Policy
+The following is subject to change at any time, without notice.
+
+# Cookie Policy
+-------------------------
+This website utilizes two types of cookies: 
+> Essential cookies that play a part in handling contact form submissions and rate limiting (which cannot be disabled)
+> Non-essential cookies set by Google Analytics which allows for the tracking of site usage (see below for more details)
+
+# Google Analytics
+-------------------------
+This website uses Google Analytics to track usage and engagement. No personally identifiable data is collected by this service. 
+> To learn more about how Google Analytics collects and proccesses your data, visit: https://policies.google.com/technologies/partner-sites
+> If so desired, you may opt-out of Google Analytics by installing the browser extension found at: https://tools.google.com/dlpage/gaoptout

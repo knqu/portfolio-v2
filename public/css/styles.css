@@ -375,6 +375,17 @@ footer p {
 	border-top: 1px solid var(--darkWhite);
 }
 
+footer p a {
+	color: var(--mediumWhite);
+	display: inline-block;
+	padding-left: 4px;
+}
+
+footer p a:hover {
+	color: var(--darkWhite);
+	transition: color 200ms ease-in;
+}
+
 /* -------------------------
 PRELOADER
 Credit & License: https://codepen.io/Maseone/pen/vEjqre
