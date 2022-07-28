@@ -32,7 +32,7 @@ app.use(helmet.contentSecurityPolicy({
         scriptSrc: ["'self'", "'unsafe-inline'", 'unsafe-eval', 'https://cdn.jsdelivr.net/', 'https://cdnjs.cloudflare.com/', 'https://*.googletagmanager.com/'],
         styleSrc: ["'self'", "'unsafe-inline'", 'https://cdn.jsdelivr.net/', 'https://fonts.googleapis.com/', 'https://fonts.gstatic.com/'],
         imgSrc: ["'self'", 'https://*.google-analytics.com', 'https://*.googletagmanager.com/'],
-        connectSrc: ['https://*.google-analytics.com/', 'https://*.analytics.google.com', 'https://*.googletagmanager.com/'],
+        connectSrc: ["'self'", 'https://*.google-analytics.com/', 'https://*.analytics.google.com', 'https://*.googletagmanager.com/'],
     }
 }));
 

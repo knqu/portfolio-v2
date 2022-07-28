@@ -55,6 +55,10 @@ setTimeout(function () {
     }
 }, 4000);
 
+// particles.js
+
+particlesJS.load('particles', '/js/json/particles.json');
+
 // links and buttons: uses js instead of <a> to circumvent url change
 
 const navLinks = document.querySelectorAll('.nav-link');
