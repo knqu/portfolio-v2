@@ -23,7 +23,7 @@ landingText.style.clipPath = 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)';
 landingText.style.transform = 'translateY(25%)';
 
 window.scrollTo({ top: 0, behavior: 'auto' });
-// all gsap utilities must be executed after page has loaded due to scripts being deferred
+// all gsap and particles.js utilities must be executed after page has loaded due to scripts being deferred
 window.addEventListener('load', function () {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -47,6 +47,8 @@ window.addEventListener('load', function () {
         preloader.remove();
         preloaderWrapper.remove();
     }, 2000);
+
+    particlesJS.load('particles', '/js/json/particles.json');
 });
 
 setTimeout(function () {
@@ -54,10 +56,6 @@ setTimeout(function () {
         subPreloaderText.innerText = 'Please check your connection and that your antivirus is not blocking any site assets.';
     }
 }, 4000);
-
-// particles.js
-
-particlesJS.load('particles', '/js/json/particles.json');
 
 // links and buttons: uses js instead of <a> to circumvent url change
 
