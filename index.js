@@ -104,23 +104,23 @@ app.get('/contact', function (req, res) {
     } else {
         if (rateLimited === 'true') {
             res.clearCookie('rateLimited', { signed: true, secure: true, httpOnly: true });
-            res.status(429).render('status', { status: '429' });
+            res.status(429).render('status', { status: '429', title: 'Error' });
         } else {
             if (contactStatus === 'error') {
                 res.status(500);
             }
-            res.render('status', { status: contactStatus });
+            res.render('status', { status: contactStatus, title: 'Contact' });
         }
     }
 });
 
 app.use(function (req, res) {
-    res.status(404).render('status', { status: '404' });
+    res.status(404).render('status', { status: '404', title: 'Error' });
 });
 
 app.use(function (err, req, res, next) {
     notify.alert(err, req.socket.remoteAddress).catch();
-    res.status(500).render('status', { status: '500' });
+    res.status(500).render('status', { status: '500', title: 'Error' });
 });
 
 app.listen(process.env.PORT, function () {
