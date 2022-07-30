@@ -54,7 +54,7 @@ const contactLimiter = rateLimit({
         return contactStatus !== 'error' || contactStatus !== 'invalid';
     },
     handler: function (req, res) {
-        res.cookie('rateLimited', 'true', { signed: true, secure: true, httpOnly: true });
+        res.cookie('rateLimited', 'true', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
         res.redirect('/contact');
     }
 });
@@ -66,7 +66,7 @@ app.get('/', function (req, res) {
 app.post('/contact', contactLimiter, async function (req, res, next) {
     try {
         if (!format.check(req.body)) {
-            res.cookie('contactStatus', 'invalid', { signed: true, secure: true, httpOnly: true });
+            res.cookie('contactStatus', 'invalid', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
             res.redirect('/contact');
         }
 
@@ -83,10 +83,10 @@ app.post('/contact', contactLimiter, async function (req, res, next) {
                 notify.message(name, email, body, ip);
             })
             .then(function () {
-                res.cookie('contactStatus', 'success', { signed: true, secure: true, httpOnly: true });
+                res.cookie('contactStatus', 'success', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
             })
             .catch(function (err) {
-                res.cookie('contactStatus', 'error', { signed: true, secure: true, httpOnly: true });
+                res.cookie('contactStatus', 'error', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
                 notify.alert(err, ip).catch();
             });
 
