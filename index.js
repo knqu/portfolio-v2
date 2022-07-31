@@ -75,7 +75,7 @@ app.post('/contact', contactLimiter, async function (req, res, next) {
         }
 
         const { name, email, body } = req.body;
-        const ip = req.socket.remoteAddress;
+        const ip = req.headers['x-real-ip'] || req.socket.remoteAddress;
 
         let newMessage = new Message({ name: name, email: email, body: body, ip: ip });
         await newMessage.save()
