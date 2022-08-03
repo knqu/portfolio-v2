@@ -315,6 +315,10 @@ CONTACT SECTION
 	text-align: left;
 }
 
+.form-control:focus {
+	box-shadow: 0 0 0 0.25rem rgb(149 148 228 / 25%);
+}
+
 label {
 	font-size: 16px;
 	user-select: none;
