@@ -114,6 +114,10 @@ app.get('/contact', function (req, res) {
     }
 });
 
+app.get('/privacy', function (req, res) {
+    res.render('privacy');
+});
+
 app.use(function (req, res) {
     res.status(404).render('status', { status: '404', title: 'Error' });
 });
