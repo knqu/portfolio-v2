@@ -572,6 +572,14 @@ Credit & License: https://codepen.io/Maseone/pen/vEjqre
 }
 
 /* -------------------------
+RECAPTCHA BADGE
+------------------------- */
+
+.grecaptcha-badge {
+	visibility: hidden;
+}
+
+/* -------------------------
 MEDIA QUERIES
 ------------------------- */
 

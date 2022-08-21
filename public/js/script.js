@@ -78,20 +78,40 @@ exploreBtn.addEventListener('click', function () {
     exploreBtn.blur();
 });
 
-// bootstrap form validation
+// bootstrap and recaptcha validation
 
-(function () {
-    'use strict';
-    const forms = document.querySelectorAll('.needs-validation');
-    Array.from(forms)
-        .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
+const contactForm = document.querySelector('#contactForm');
+contactForm.addEventListener('submit', function (e) {
+    if (!contactForm.checkValidity()) {
+        e.preventDefault();
+        e.stopPropagation();
+        contactForm.classList.add('was-validated');
+    } else {
+        e.preventDefault();
+        contactForm.classList.add('was-validated');
 
-                form.classList.add('was-validated');
-            }, false);
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6Ldgm5MhAAAAACgFWEbWO0tZxgAnZpz71lyyhb5g', { action: 'submit' })
+                .then(function (token) {
+                    fetch('/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name: contactForm.elements['name'].value,
+                            email: contactForm.elements['email'].value,
+                            body: contactForm.elements['body'].value,
+                            token: token
+                        })
+                    })
+                        .catch(function () {
+                            alert('Message failed to send. Please try again.');
+                        });
+                })
+                .catch(function (err) {
+                    alert('reCAPTCHA verification failed. Please try again.');
+                });
         });
-})();
+    }
+}, false);
