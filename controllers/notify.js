@@ -1,7 +1,7 @@
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 
-const adminEmail = process.env.EMAIL_ADDRESS;
+const adminEmail = process.env.NODEMAILER_EMAIL_ADDRESS;
 
 module.exports.message = async function (name, email, body, ip) {
     let transporter = nodemailer.createTransport({
@@ -9,10 +9,10 @@ module.exports.message = async function (name, email, body, ip) {
         auth: {
             type: 'OAuth2',
             user: adminEmail,
-            pass: process.env.EMAIL_PASS,
-            clientId: process.env.CLIENT_ID,
-            clientSecret: process.env.CLIENT_SECRET,
-            refreshToken: process.env.REFRESH_TOKEN
+            pass: process.env.NODEMAILER_EMAIL_PASS,
+            clientId: process.env.NODEMAILER_CLIENT_ID,
+            clientSecret: process.env.NODEMAILER_CLIENT_SECRET,
+            refreshToken: process.env.NODEMAILER_REFRESH_TOKEN
         }
     });
 
@@ -51,10 +51,10 @@ module.exports.alert = async function (err, ip) {
         auth: {
             type: 'OAuth2',
             user: adminEmail,
-            pass: process.env.EMAIL_PASS,
-            clientId: process.env.CLIENT_ID,
-            clientSecret: process.env.CLIENT_SECRET,
-            refreshToken: process.env.REFRESH_TOKEN
+            pass: process.env.NODEMAILER_EMAIL_PASS,
+            clientId: process.env.NODEMAILER_CLIENT_ID,
+            clientSecret: process.env.NODEMAILER_CLIENT_SECRET,
+            refreshToken: process.env.NODEMAILER_REFRESH_TOKEN
         }
     });
 

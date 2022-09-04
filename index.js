@@ -1,4 +1,6 @@
 require('dotenv').config();
+const appEnv = process.env.NODE_ENV;
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -12,7 +14,7 @@ const Message = require('./models/message');
 const notify = require('./controllers/notify');
 const format = require('./controllers/format');
 
-mongoose.connect(process.env.DB_URL)
+mongoose.connect(process.env.MONGODB_URL)
     .then(function () {
         console.log('Connected to MongoDB');
     })
@@ -25,7 +27,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/public')));
 
-app.use(cookieParser(process.env.COOKIE_SECRET));
+app.use(cookieParser(process.env.COOKIE_PARSER_SECRET));
 
 app.use(helmet());
 app.use(helmet.contentSecurityPolicy({
@@ -66,7 +68,7 @@ function getIP(req) {
 }
 
 app.get('/', function (req, res) {
-    res.render('index');
+    res.render('index', { appEnv });
 });
 
 app.post('/contact', contactLimiter, async function (req, res) {
@@ -146,6 +148,6 @@ app.use(function (err, req, res, next) {
     res.render('status', { status: '500', title: 'Error' });
 });
 
-app.listen(process.env.PORT, function () {
-    console.log(`Listening on port ${process.env.PORT}`);
+app.listen(process.env.EXPRESS_PORT, function () {
+    console.log(`Listening on port ${process.env.EXPRESS_PORT}`);
 });
