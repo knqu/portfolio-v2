@@ -22,7 +22,7 @@ mongoose.connect(process.env.DB_URL)
 
 const app = express();
 
-app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(cookieParser(process.env.COOKIE_SECRET));
@@ -79,7 +79,7 @@ app.post('/contact', contactLimiter, async function (req, res, next) {
         const { name, email, body, token } = req.body;
         const ip = req.headers['x-real-ip'] || req.socket.remoteAddress;
 
-        axios.post('https://www.google.com/recaptcha/api/siteverify', `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}&remoteip=${ip}`, {
+        await axios.post('https://www.google.com/recaptcha/api/siteverify', `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}&remoteip=${ip}`, {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
@@ -98,7 +98,6 @@ app.post('/contact', contactLimiter, async function (req, res, next) {
                 res.cookie('contactStatus', 'error', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
                 return res.redirect('/contact');
             });
-
 
         let newMessage = new Message({ name: name, email: email, body: body, ip: ip });
         await newMessage.save()
@@ -146,6 +145,7 @@ app.use(function (req, res) {
 });
 
 app.use(function (err, req, res, next) {
+    console.log(err);
     notify.alert(err, req.socket.remoteAddress).catch();
     res.status(500).render('status', { status: '500', title: 'Error' });
 });

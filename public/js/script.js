@@ -93,24 +93,11 @@ contactForm.addEventListener('submit', function (e) {
         grecaptcha.ready(function () {
             grecaptcha.execute('6Ldgm5MhAAAAACgFWEbWO0tZxgAnZpz71lyyhb5g', { action: 'submit' })
                 .then(function (token) {
-                    fetch('/contact', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            name: contactForm.elements['name'].value,
-                            email: contactForm.elements['email'].value,
-                            body: contactForm.elements['body'].value,
-                            token: token
-                        })
-                    })
-                        .catch(function () {
-                            alert('Message failed to send. Please try again.');
-                        });
+                    contactForm.elements['token'].value = token;
+                    contactForm.submit();
                 })
                 .catch(function (err) {
-                    alert('reCAPTCHA verification failed. Please try again.');
+                    alert('reCAPTCHA verification failed. Please make sure you are not blocking any site assets, and try again.');
                 });
         });
     }
