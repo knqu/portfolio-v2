@@ -19,14 +19,25 @@ const messageSchema = new mongoose.Schema({
         required: true,
         minlength: 2
     },
-    ip: {
-        type: String,
-        required: true
-    },
-    date: {
-        type: Date,
-        default: Date.now,
-        required: true
+    meta: {
+        ip: {
+            type: String,
+            required: true
+        },
+        date: {
+            type: Date,
+            required: true
+        },
+        recaptcha: {
+            success: {
+                type: Boolean,
+                required: true
+            },
+            score: {
+                type: Number,
+                required: true
+            }
+        }
     }
 });
 

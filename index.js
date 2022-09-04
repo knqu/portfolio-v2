@@ -57,15 +57,19 @@ const contactLimiter = rateLimit({
     },
     handler: function (req, res) {
         res.cookie('rateLimited', 'true', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
-        return res.redirect('/contact');
+        res.redirect('/contact');
     }
 });
+
+function getIP(req) {
+    return req.headers['x-real-ip'] || req.socket.remoteAddress;
+}
 
 app.get('/', function (req, res) {
     res.render('index');
 });
 
-app.post('/contact', contactLimiter, async function (req, res, next) {
+app.post('/contact', contactLimiter, async function (req, res) {
     try {
         if (!format.check(req.body)) {
             res.cookie('contactStatus', 'invalid', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
@@ -77,44 +81,32 @@ app.post('/contact', contactLimiter, async function (req, res, next) {
         }
 
         const { name, email, body, token } = req.body;
-        const ip = req.headers['x-real-ip'] || req.socket.remoteAddress;
 
-        await axios.post('https://www.google.com/recaptcha/api/siteverify', `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}&remoteip=${ip}`, {
+        const recaptcha = await axios.post('https://www.google.com/recaptcha/api/siteverify', `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}&remoteip=${getIP(req)}`, {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
-        })
-            .then(function (res) {
-                let success = res.data.success;
-                let score = res.data.score;
+        });
 
-                if (!success || score < 0.5) {
-                    res.cookie('contactStatus', 'recaptchaFailed', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
-                    return res.redirect('/contact');
-                }
-            })
-            .catch(function (err) {
-                notify.alert(err, ip).catch();
-                res.cookie('contactStatus', 'error', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
-                return res.redirect('/contact');
-            });
+        const success = recaptcha.data.success;
+        const score = recaptcha.data.score;
 
-        let newMessage = new Message({ name: name, email: email, body: body, ip: ip });
-        await newMessage.save()
-            .then(function () {
-                notify.message(name, email, body, ip);
-            })
-            .then(function () {
-                res.cookie('contactStatus', 'success', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
-            })
-            .catch(function (err) {
-                res.cookie('contactStatus', 'error', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
-                notify.alert(err, ip).catch();
-            });
+        if (!success || score < 0.5) {
+            res.cookie('contactStatus', 'recaptchaFailed', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
+            return res.redirect('/contact');
+        }
 
+        let newMessage = new Message({ name: name, email: email, body: body, meta: { ip: getIP(req), date: new Date(), recaptcha: { success: success, score: score } } });
+        await newMessage.save();
+
+        notify.message(name, email, body, getIP(req));
+        res.cookie('contactStatus', 'success', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
         res.redirect('/contact');
     } catch (err) {
-        next(err);
+        console.log(err);
+        notify.alert(err, getIP(req)).catch();
+        res.cookie('contactStatus', 'error', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
+        res.redirect('/contact');
     }
 });
 
@@ -122,11 +114,13 @@ app.get('/contact', function (req, res) {
     const { contactStatus = null, rateLimited = false } = req.signedCookies;
 
     if (!contactStatus && !rateLimited) {
-        res.status(400).redirect('/');
+        res.status(400);
+        res.redirect('/');
     } else {
         if (rateLimited === 'true') {
             res.clearCookie('rateLimited', { signed: true, secure: true, httpOnly: true });
-            res.status(429).render('status', { status: '429', title: 'Error' });
+            res.status(429);
+            res.render('status', { status: '429', title: 'Error' });
         } else {
             if (contactStatus === 'error') {
                 res.status(500);
@@ -141,13 +135,15 @@ app.get('/privacy', function (req, res) {
 });
 
 app.use(function (req, res) {
-    res.status(404).render('status', { status: '404', title: 'Error' });
+    res.status(404);
+    res.render('status', { status: '404', title: 'Error' });
 });
 
 app.use(function (err, req, res, next) {
     console.log(err);
-    notify.alert(err, req.socket.remoteAddress).catch();
-    res.status(500).render('status', { status: '500', title: 'Error' });
+    notify.alert(err, getIP(req)).catch();
+    res.status(500);
+    res.render('status', { status: '500', title: 'Error' });
 });
 
 app.listen(process.env.PORT, function () {
