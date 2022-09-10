@@ -27,18 +27,21 @@ window.scrollTo({ top: 0, behavior: 'auto' });
 window.addEventListener('load', function () {
     gsap.registerPlugin(ScrollTrigger);
 
-    const tl = gsap.timeline({ defaults: { duration: 2 } });
+    const tl = gsap.timeline();
     tl
         .to(preloaderWrapper, {
-            opacity: 0
+            opacity: 0,
+            duration: 1
         })
         .to(main, {
-            opacity: 1
+            opacity: 1,
+            duration: 1
         })
         .to(landingText, {
             'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
             y: 0,
-            ease: 'back'
+            ease: 'back',
+            duration: 2
         }, '<');
 
     setTimeout(function () {
@@ -46,7 +49,7 @@ window.addEventListener('load', function () {
         body.style.overflow = 'auto';
         preloader.remove();
         preloaderWrapper.remove();
-    }, 2000);
+    }, 1000);
 
     particlesJS.load('particles', '/js/json/particles.json');
 });
@@ -55,7 +58,7 @@ setTimeout(function () {
     if (main.style.opacity == 0) {
         subPreloaderText.innerText = 'Please check your connection and that your antivirus is not blocking any site assets.';
     }
-}, 4000);
+}, 6000);
 
 // links and buttons: uses js instead of <a> to circumvent url change
 
