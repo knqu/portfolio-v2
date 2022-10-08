@@ -79,14 +79,48 @@ p {
 	color: var(--mediumWhite);
 }
 
+/* -------------------------
+LINKS
+------------------------- */
+
 a {
 	color: var(--blurple);
 	text-decoration: none;
 }
 
-a:hover {
-	color: #817acf;
-	transition: color 200ms ease-in;
+.animLink {
+	color: var(--mediumWhite);
+	text-decoration: none;
+	position: relative;
+	z-index: 0;
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: bottom;
+	transition: color 200ms ease-out;
+}
+
+.animLink::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	transform: translateY(calc(100% - 2px));
+	width: 100%;
+	height: 100%;
+	background-image: var(--blurpleGradient);
+	opacity: .75;
+	border-radius: 1px;
+	transition: transform 200ms ease-out;
+}
+
+.animLink:hover {
+	color: var(--lightWhite);
+}
+
+.animLink:hover::before {
+	transform: translateY(0);
+	transition: transform 200ms ease-out;
 }
 
 /* -------------------------
