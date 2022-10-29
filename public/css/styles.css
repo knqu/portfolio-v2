@@ -350,7 +350,8 @@ CONTACT SECTION
 }
 
 .form-control:focus {
-	box-shadow: 0 0 0 0.25rem rgb(149 148 228 / 25%);
+	/* box-shadow: 0 0 0 0.25rem rgb(149 148 228 / 25%); */
+	box-shadow: 0 0 0 3px rgb(151 148 228 / 25%), 0 0 0 3px rgb(104 204 224 / 25%);
 }
 
 label {
