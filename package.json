@@ -29,5 +29,8 @@
     "helmet": "^5.1.0",
     "mongoose": "^6.4.2",
     "nodemailer": "^6.7.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
