@@ -275,15 +275,15 @@ WORKS SECTION (W/ CARDS)
 
 #works .cardInner {
 	height: 100%;
-	background: var(--mediumBlack);
+	background: #171717;
 	padding: 22px;
-	border: 1px solid var(--lightBlack);
+	border: 1px solid var(--mediumBlack);
 	border-radius: 8px;
 	position: relative;
 }
 
 #works .cardInner:hover {
-	background: var(--lightBlack);
+	background: var(--mediumBlack);
 	cursor: pointer;
 	transition: background 200ms ease-in;
 }
