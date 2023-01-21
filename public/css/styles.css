@@ -4,11 +4,11 @@ GLOBAL
 
 :root {
 	--lightBlack: #252525;
-	--mediumBlack: #1f1f1f;
-	--darkBlack: #141414;
-	--lightWhite: #dbdbdb;
-	--mediumWhite: #cecece;
-	--darkWhite: #aeaeae;
+	--mediumBlack: #1e1d1d;
+	--darkBlack: #0f0f0f;
+	--lightWhite: #e3e3e3;
+	--mediumWhite: #d8d8d8;
+	--darkWhite: #b5b5b5;
 	--blurple: #9594e4;
 	--success: #8df18d;
 	--error: #f18d8d;

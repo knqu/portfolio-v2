@@ -1,7 +1,7 @@
 {
   "name": "portfolio-v2",
   "version": "1.0.0",
-  "description": "Personal portfolio website: Version 2",
+  "description": "Personal portfolio website (version 2)",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
