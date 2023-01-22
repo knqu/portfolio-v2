@@ -9,7 +9,7 @@ GLOBAL
 	--lightWhite: #e3e3e3;
 	--mediumWhite: #d8d8d8;
 	--darkWhite: #b5b5b5;
-	--blurple: #9594e4;
+	--blurple: #8ca3ed;
 	--success: #8df18d;
 	--error: #f18d8d;
 	--blurpleGradient: linear-gradient(90deg, rgb(151, 148, 228) 0%, rgb(104, 204, 224) 100%);
@@ -83,44 +83,38 @@ p {
 LINKS
 ------------------------- */
 
-a {
-	color: var(--blurple);
-	text-decoration: none;
-}
-
 .animLink {
-	color: var(--mediumWhite);
-	text-decoration: none;
-	position: relative;
-	z-index: 0;
 	display: inline-block;
+	position: relative;
 	overflow: hidden;
-	vertical-align: bottom;
-	transition: color 200ms ease-out;
+	text-decoration: none;
+	color: var(--mediumWhite);
+	background: none;
+	top: 4px;
+	line-height: 1;
 }
 
-.animLink::before {
+.animLink::after {
 	content: "";
+	background: rgba(140, 163, 237, 0.25);
 	position: absolute;
-	z-index: -1;
-	top: 0;
-	left: 0;
-	transform: translateY(calc(100% - 2px));
-	width: 100%;
-	height: 100%;
-	background-image: var(--blurpleGradient);
-	opacity: .75;
-	border-radius: 1px;
-	transition: transform 200ms ease-out;
+	left: 12px;
+	bottom: -6px;
+	width: calc(100% - 8px);
+	height: calc(100% - 8px);
+	z-index: 1;
+	transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
 }
 
 .animLink:hover {
-	color: var(--lightWhite);
+	color: var(--mediumWhite);
 }
 
-.animLink:hover::before {
-	transform: translateY(0);
-	transition: transform 200ms ease-out;
+.animLink:hover:after {
+	left: 0;
+	bottom: -2px;
+	width: 100%;
+	height: 100%;
 }
 
 /* -------------------------
@@ -288,7 +282,7 @@ WORKS SECTION (W/ CARDS)
 	transition: background 200ms ease-in;
 }
 
-#works h3 {
+#works .card-title {
 	font-family: 'Encode Sans SC';
 	font-size: 22px;
 	font-weight: 600;
@@ -299,6 +293,11 @@ WORKS SECTION (W/ CARDS)
 #works .card p {
 	font-size: 16px;
 	text-align: left;
+}
+
+#works .stretched-link {
+	color: var(--blurple);
+	text-decoration: none;
 }
 
 #works .stretched-link:hover {
@@ -420,16 +419,6 @@ footer p {
 	height: 15vh;
 	width: 100%;
 	border-top: 1px solid var(--darkWhite);
-}
-
-footer p a {
-	color: var(--mediumWhite);
-	display: inline-block;
-}
-
-footer p a:hover {
-	color: var(--darkWhite);
-	transition: color 200ms ease-in;
 }
 
 /* -------------------------
