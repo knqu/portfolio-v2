@@ -68,7 +68,7 @@ function getIP(req) {
 }
 
 app.get('/', function (req, res) {
-    res.render('index', { appEnv });
+    res.render('index', { appEnv, year: new Date().getFullYear() });
 });
 
 app.post('/contact', contactLimiter, async function (req, res) {
