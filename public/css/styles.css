@@ -270,7 +270,7 @@ WORKS SECTION (W/ CARDS)
 #works .cardInner {
 	height: 100%;
 	background: #171717;
-	padding: 22px;
+	padding: 22px 22px 10px 22px;
 	border: 1px solid var(--mediumBlack);
 	border-radius: 8px;
 	position: relative;
