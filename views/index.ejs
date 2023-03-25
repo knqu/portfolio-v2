@@ -169,7 +169,7 @@
                 <h2>Works</h2>
 
                 <div class="row">
-                    <div class="card col-lg-4">
+                    <div class="card col-lg-6">
                         <div class="cardInner">
                             <div id="aftermath" class="card-body thumbnail"></div>
                             <div class="card-body">
@@ -185,13 +185,30 @@
                         </div>
                     </div>
 
+                    <div class="card col-lg-6">
+                        <div class="cardInner" onclick="sentinel();" id="sentinelCard">
+                            <div id="sentinel" class="card-body thumbnail"></div>
+                            <div class="card-body">
+                                <h3 class="card-title">Sentinel
+                                </h3>
+                                <p class="card-text">Sentinel is a vulnerability remediation tool written in Python and
+                                    designed to harden Windows systems. It contains various modules such as user and
+                                    service auditing, configurations, and installations, and supports configuration by
+                                    the user to their precise needs.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="card col-lg-4">
                         <div class="cardInner">
                             <div id="trivia" class="card-body thumbnail"></div>
                             <div class="card-body">
                                 <h3 class="card-title"><a href="https://knqu.github.io/ap-european-history-trivia"
-                                        class="stretched-link" target="_blank" rel="noopener noreferrer">AP European
-                                        History Trivia</a>
+                                        class="stretched-link" target="_blank" rel="noopener noreferrer">AP Euro
+                                        Trivia</a>
                                 </h3>
                                 <p class="card-text">AP European History Trivia is a web game that questions players on
                                     a series of questions spanning multiple time periods in European history. It
@@ -202,7 +219,7 @@
                     </div>
 
                     <div class="card col-lg-4">
-                        <div class="cardInner" id="lastCard">
+                        <div class="cardInner">
                             <div id="gpacalc" class="card-body thumbnail"></div>
                             <div class="card-body">
                                 <h3 class="card-title"><a href="https://github.com/knqu/gpacalc" class="stretched-link"
@@ -211,6 +228,22 @@
                                     GPA (weighted and unweighted) through a colorful and intuitive
                                     command-line interface. It offers many features, such as the ability to export a
                                     GPA table into an external spreadsheet file.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card col-lg-4">
+                        <div class="cardInner" id="lastCard">
+                            <div id="valentinectf" class="card-body thumbnail"></div>
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="https://ctf.kevinqu.com" class="stretched-link"
+                                        target="_blank" rel="noopener noreferrer">Valentine's Day CTF</a>
+                                </h3>
+                                <p class="card-text">This site hosts the web challenges I developed for my
+                                    school's computer science honor society's capture-the-flag event (targeting
+                                    beginners). It features 4 challenges covering an assortment of cybersecurity
+                                    topics of varying difficulties.
                                 </p>
                             </div>
                         </div>
@@ -271,6 +304,13 @@
             </p>
         </footer>
     </main>
+
+    <script>
+        const sentinelCard = document.querySelector('#sentinelCard');
+        sentinelCard.addEventListener('click', function () {
+            alert("Sentinel's source code is currently private, but will be published soon!");
+        })
+    </script>
 
     <!-- bootstrap 5 js (with popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

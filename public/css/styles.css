@@ -262,6 +262,10 @@ ABOUT SECTION
 WORKS SECTION (W/ CARDS)
 ------------------------- */
 
+#works .row:first-of-type {
+	margin-bottom: 22px;
+}
+
 #works .card {
 	background: none;
 	border: none;
@@ -317,6 +321,11 @@ WORKS SECTION (W/ CARDS)
 	background-image: url(/img/aftermath.png);
 }
 
+#sentinel {
+	background-image: url(/img/sentinel.png);
+	background-position: top left;
+}
+
 #trivia {
 	background-image: url(/img/trivia.png);
 }
@@ -324,6 +333,10 @@ WORKS SECTION (W/ CARDS)
 #gpacalc {
 	background-image: url(/img/gpacalc.png);
 	background-position: top left;
+}
+
+#valentinectf {
+	background-image: url(/img/valentinectf.png);
 }
 
 /* -------------------------
@@ -680,6 +693,10 @@ MEDIA QUERIES
 	}
 
 	#works #lastCard {
+		margin-bottom: 0;
+	}
+
+	#works .row:first-of-type {
 		margin-bottom: 0;
 	}
 
