@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@500;600;700&family=Nunito:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap>"
         rel="stylesheet">
 
     <!-- css reset -->
@@ -92,7 +92,6 @@
             #jsDisabledSubmitBtn {
                 cursor: not-allowed;
             }
-
         </style>
     </noscript>
 </head>
@@ -151,12 +150,13 @@
                     Hello! My name is Kevin, and I am currently a high school student in the United States. I have a
                     strong interest in the field of computer science, with a particular focus on cybersecurity. I have
                     participated in numerous cybersecurity competitions, including the Air Force Association's
-                    CyberPatriot Cyber Defense Competition, as well as various capture-the-flag events.<br><br>
+                    CyberPatriot Cyber Defense Competition, as well as various capture the flag events (e.g. CyberStart,
+                    Carnegie Mellon University's picoCTF).<br><br>
 
                     Moreover, I have a keen interest in full stack web development, using various technologies such as
                     NodeJS, MongoDB, Express, and EJS to create modern and responsive websites. I have also tinkered
-                    with game development, utilizing tools like Phaser and Unity. If interested, you can check out
-                    some of my more notable projects below, or take a look at all of my public projects on <a
+                    with game development, utilizing tools like Phaser and Unity. If interested, you can check out some
+                    of my more notable projects below, or take a look at all of my public projects on <a
                         href="https://github.com/knqu" class="animLink" target="_blank" rel="noopener noreferrer">my
                         GitHub</a>.
                 </p>
@@ -241,7 +241,7 @@
                                         target="_blank" rel="noopener noreferrer">Valentine's Day CTF</a>
                                 </h3>
                                 <p class="card-text">This site hosts the web challenges I developed for my
-                                    school's computer science honor society's capture-the-flag event (targeting
+                                    school's computer science honor society's capture the flag event (targeting
                                     beginners). It features 4 challenges covering an assortment of cybersecurity
                                     topics of varying difficulties.
                                 </p>
@@ -257,36 +257,44 @@
             <div class="container">
                 <h2>Contact</h2>
 
-                <form action="/contact" method="POST" id="contactForm" class="needs-validation" novalidate>
-                    <div class="form-floating">
-                        <input type="text" id="name" class="form-control" name="name" placeholder="Kevin Qu"
-                            minlength="2" maxlength="100" required>
-                        <label for="name">Full name</label>
-                        <div class="valid-feedback">Looks good!</div>
-                        <div class="invalid-feedback">Please enter your full name.</div>
+                <div class="row">
+                    <div class="col-9">
+                        <form action="/contact" method="POST" id="contactForm" class="needs-validation" novalidate>
+                            <div class="form-floating">
+                                <input type="text" id="name" class="form-control" name="name" placeholder="Kevin Qu"
+                                    minlength="2" maxlength="100" required>
+                                <label for="name">Full name</label>
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Please enter your full name.</div>
+                            </div>
+
+                            <div class="form-floating">
+                                <input type="email" id="email" class="form-control" name="email"
+                                    placeholder="example@email.provider" minlength="5" maxlength="100" required>
+                                <label for="email">Email</label>
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Please enter a valid email.</div>
+                            </div>
+
+                            <div class="form-floating">
+                                <textarea id="body" class="form-control" name="body" rows="4" placeholder="Type here"
+                                    minlength="2" maxlength="1000" required></textarea>
+                                <label for="body">Message</label>
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Please enter a message.</div>
+                            </div>
+
+                            <input type="hidden" name="token">
+
+                            <button type="submit" id="submitBtn">Submit</button>
+                            <noscript><button type="button" id="jsDisabledSubmitBtn" disabled>JS
+                                    Disabled</button></noscript>
+                        </form>
                     </div>
-
-                    <div class="form-floating">
-                        <input type="email" id="email" class="form-control" name="email"
-                            placeholder="example@email.provider" minlength="5" maxlength="100" required>
-                        <label for="email">Email</label>
-                        <div class="valid-feedback">Looks good!</div>
-                        <div class="invalid-feedback">Please enter a valid email.</div>
+                    <div class="col-3">
+                        <img src="/img/mailbox.svg" alt="Mailbox icon">
                     </div>
-
-                    <div class="form-floating">
-                        <textarea id="body" class="form-control" name="body" rows="4" placeholder="Type here"
-                            minlength="2" maxlength="1000" required></textarea>
-                        <label for="body">Message</label>
-                        <div class="valid-feedback">Looks good!</div>
-                        <div class="invalid-feedback">Please enter a message.</div>
-                    </div>
-
-                    <input type="hidden" name="token">
-
-                    <button type="submit" id="submitBtn">Submit</button>
-                    <noscript><button type="button" id="jsDisabledSubmitBtn" disabled>JS Disabled</button></noscript>
-                </form>
+                </div>
             </div>
         </section>
 
