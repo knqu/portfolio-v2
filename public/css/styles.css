@@ -262,9 +262,45 @@ WORKS SECTION (W/ CARDS)
 }
 
 #works .cardInner:hover {
-	background: var(--mediumBlack);
 	cursor: pointer;
-	transition: background 200ms ease-in;
+}
+
+#works .cardInner:hover::before {
+	opacity: 1;
+}
+
+#works .cardInner::before, #works .cardInner::after {
+	content: "";
+	height: 100%;
+	left: 0px;
+	opacity: 0;
+	position: absolute;
+	top: 0px;
+	transition: opacity 500ms;
+	width: 100%;
+}
+
+#works .cardInner::before {
+	background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+			rgba(255, 255, 255, 0.06),
+			transparent 40%);
+	z-index: 3;
+}
+
+#works .cardInner::after {
+	background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+			rgba(255, 255, 255, 0.4),
+			transparent 40%);
+	z-index: 1;
+}
+
+#works .cardInner>.card-content {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	inset: 1px;
+	position: absolute;
+	z-index: 2;
 }
 
 #works .card-title {
@@ -424,8 +460,6 @@ footer p {
 
 /* -------------------------
 PRELOADER
-Credit & License: https://codepen.io/Maseone/pen/vEjqre
-(Modifications made)
 ------------------------- */
 
 #preloaderWrapper {

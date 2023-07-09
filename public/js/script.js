@@ -105,3 +105,16 @@ contactForm.addEventListener('submit', function (e) {
         });
     }
 }, false);
+
+// card hover effect
+
+document.querySelector("#works").onmousemove = function (e) {
+    for (const card of document.querySelectorAll(".cardInner")) {
+        const rect = card.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
+
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+    };
+};
