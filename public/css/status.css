@@ -30,7 +30,7 @@ GLOBAL
 }
 
 body {
-    font-family: 'Nunito';
+    font-family: 'Poppins';
     font-kerning: none;
     line-height: 1.4;
     background: var(--darkBlack);
@@ -54,26 +54,34 @@ img {
 h1 {
     font-family: 'Encode Sans SC';
     font-weight: 700;
-    font-size: 72px;
+    font-size: 64px;
     user-select: none;
     line-height: 1;
 }
 
 p {
-    font-size: 24px;
+    font-size: 22px;
     color: var(--mediumWhite);
     padding: 10px 36px 6px 36px;
 }
 
 a {
-    font-size: 20px;
-    color: var(--blurple);
+    font-size: 22px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
     text-decoration: none;
-    transition: color 200ms ease-in;
+    color: var(--mediumWhite);
+    top: 4px;
+    line-height: 1;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 45%, rgba(155, 174, 236, 0.5) 45%, rgba(140, 163, 237, 0.5) 80%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
+    border-bottom: 1px solid transparent;
 }
 
 a:hover {
-    color: #817acf;
+    color: var(--mediumWhite);
+    border-bottom: 1px solid var(--mediumWhite);
+    transition: all 100ms ease-in;
 }
 
 @media (max-width: 1199.98px) {
