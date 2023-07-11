@@ -51,11 +51,13 @@ app.set('views', path.join(__dirname, '/views'));
 const contactLimiter = rateLimit({
     windowMs: 60000,
     max: 1,
+    standardHeaders: true,
+    legacyHeaders: false,
     message: 'To discourage spam, there is a message cooldown of 1 minute.',
     skipFailedRequests: true,
     requestWasSuccessful: function (req, res) {
         const { contactStatus } = req.signedCookies;
-        return contactStatus !== 'error' || contactStatus !== 'invalid';
+        return contactStatus !== 'error' && contactStatus !== 'invalid';
     },
     handler: function (req, res) {
         res.cookie('rateLimited', 'true', { signed: true, secure: true, httpOnly: true, maxAge: 60000 });
