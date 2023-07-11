@@ -23,12 +23,16 @@ landingText.style.clipPath = 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)';
 landingText.style.transform = 'translateY(25%)';
 
 window.scrollTo({ top: 0, behavior: 'auto' });
+
 // all gsap and particles.js utilities must be executed after page has loaded due to scripts being deferred
+
 window.addEventListener('load', function () {
     gsap.registerPlugin(ScrollTrigger);
 
-    const tl = gsap.timeline();
-    tl
+    // landing animation
+
+    const landingTl = gsap.timeline();
+    landingTl
         .to(preloaderWrapper, {
             opacity: 0,
             duration: 1
@@ -51,7 +55,55 @@ window.addEventListener('load', function () {
         preloaderWrapper.remove();
     }, 1000);
 
+    // particles.js load
+
     particlesJS.load('particles', '/js/json/particles.json');
+
+    // body scroll animations
+
+    const preset = {
+        opacity: 0,
+        y: 100,
+        duration: 1,
+        ease: 'ease-in'
+    };
+
+    const aboutTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#about',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: false
+        }
+    }).from('#aboutText', preset);
+
+    const worksRow1Tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#worksRow1',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: false
+        }
+    }).from('#worksRow1', preset);
+
+    const worksRow2Tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#worksRow2',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: false
+        }
+    }).from('#worksRow2', preset);
+
+
+    const contactTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#contact',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: false
+        }
+    }).from('#contactForm', preset);
 });
 
 setTimeout(function () {
