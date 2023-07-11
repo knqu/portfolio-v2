@@ -110,7 +110,7 @@ setTimeout(function () {
     if (main.style.opacity == 0) {
         subPreloaderText.innerText = 'Please check your connection and that your antivirus is not blocking any site assets.';
     }
-}, 6000);
+}, 8000);
 
 // links and buttons: uses js instead of <a> to circumvent url change
 

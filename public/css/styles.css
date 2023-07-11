@@ -468,7 +468,7 @@ PRELOADER
 	width: 250px;
 	height: 250px;
 	margin: 0 auto;
-	top: 50%;
+	top: 55%;
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
