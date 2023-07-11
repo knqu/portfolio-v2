@@ -21,24 +21,18 @@ module.exports.message = async function (name, email, body, ip) {
         to: `${adminEmail}`,
         subject: `Message from ${name}`,
         text: `
-            SUBMISSION\n
             Full Name: ${name}\n
-            Email: ${email}\n
-            Message: ${body}\n\n
-
-            DETAILS:\n
-            Date: ${new Date()}\n
-            IP Address: ${ip}
+            Timestamp: ${new Date()}\n
+            Email Address: ${email}\n
+            IP Address: ${ip}\n
+            Message: ${body}\n
         `,
         html: `
-            <h2 style="margin-bottom:4px">Submission</h2>
-            <b>Full Name:</b> ${name}<br>
-            <b>Email:</b> ${email}<br>
-            <b>Message:</b> ${body}<br>
-                
-            <h2 style="margin-bottom:4px">Details</h2>
-            <b>Date:</b> ${new Date()}<br>
-            <b>IP Address:</b> ${ip}
+            <p style="font-family:Tahoma">Full Name: ${name}</p>
+            <p style="font-family:Tahoma">Timestamp: ${new Date()}</p>
+            <p style="font-family:Tahoma">Email Address: ${email}</p>
+            <p style="font-family:Tahoma">IP Address: ${ip}</p>
+            <p style="font-family:Tahoma">Message: ${body}</p>
         `
     };
 
@@ -63,16 +57,14 @@ module.exports.alert = async function (err, ip) {
         to: `${adminEmail}`,
         subject: `Application Error`,
         text: `
-            DETAILS:\n
-            Date: ${new Date()}\n
-            User IP: ${ip}\n
-            Error: ${err}\n
+            Timestamp: ${new Date()}\n
+            IP Address: ${ip}\n
+            Error Details: ${err}\n
         `,
         html: `
-            <h2 style="margin-bottom:4px">Details</h2>
-            <b>Date:</b> ${new Date()}<br>
-            <b>User IP:</b> ${ip}<br>
-            <b>Error:</b> ${err}
+            <p style="font-family:Tahoma">Timestamp: ${new Date()}</p>
+            <p style="font-family:Tahoma">IP Address: ${ip}</p>
+            <p style="font-family:Tahoma">Error Details: ${err}</p>
         `
     };
 
