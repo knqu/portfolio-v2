@@ -161,15 +161,11 @@ contactForm.addEventListener('submit', function (e) {
 // open works card links on click
 
 const worksCards = document.querySelectorAll('.cardInner');
-const worksUrls = ['https://aftermath.kevinqu.com', '[Placeholder for Sentinel URL]', 'https://knqu.github.io/ap-european-history-trivia', 'https://github.com/knqu/gpacalc', 'https://ctf.kevinqu.com'];
+const worksUrls = ['https://aftermath.kevinqu.com', 'https://kevinqu.com/cybersentinel', 'https://knqu.github.io/ap-european-history-trivia', 'https://github.com/knqu/gpacalc', 'https://ctf.kevinqu.com'];
 
 for (let i = 0; i < worksCards.length; i++) {
     worksCards[i].addEventListener('click', function () {
-        if (i === 1) {
-            alert("Sentinel's source code is currently private, but will be published soon!");
-        } else {
-            window.open(worksUrls[i]);
-        }
+        window.open(worksUrls[i]);
     });
 }
 

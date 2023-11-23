@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kevin Qu | CyberSentinel</title>
+    <meta name="description"
+        content="CyberSentinel is a vulnerability detection and remediation tool that streamlines the imaging and hardening of new Windows 10/11 systems.">
+    <meta name="author" content="Kevin Qu">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kevinqu.com">
+
+    <meta property="og:title" content="Kevin Qu | CyberSentinel">
+    <meta property="og:description"
+        content="CyberSentinel is a vulnerability detection and remediation tool that streamlines the imaging and hardening of new Windows 10/11 systems.">
+    <meta property="og:url" content="https://kevinqu.com">
+    <meta proprety="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap>"
+        rel="stylesheet">
+
+    <!-- bootstrap 5.1.3 css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- site css -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+
+    <!-- css styles -->
+    <style>
+        body {
+            text-align: left;
+            margin: 36px;
+            line-height: 1.5;
+        }
+
+        h1 {
+            font-size: 42px;
+            text-align: center;
+        }
+
+        h2 {
+            background: none;
+            font-size: 24px;
+            margin: 16px 0 0 0;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 28px;
+        }
+
+        hr {
+            margin: 12px 0 24px 0;
+        }
+
+        img {
+            width: 100%;
+            margin-top: 30px;
+            border: 1px solid #ccc;
+        }
+
+        .caption {
+            font-size: 16px;
+            font-style: italic;
+            text-align: center;
+            margin: 12px 0 30px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>CyberSentinel</h1>
+        <hr>
+        <p>CyberSentinel is a system administration and hardening tool that streamlines the imaging and vulnerability
+            management of new Windows 10/11 systems.</p>
+        <p>Engineered for extensive customizability, CyberSentinel is suitable for many different applications across
+            system administration and cybersecurity.</p>
+
+        <h2>Features</h2>
+        <h3>Automatic Configuration</h3>
+        <ul>
+            <li>Automatic Mode: parses pre-configured command list stored in /configs/auto/commands.txt to execute
+                commands completely independent of user input.</li>
+        </ul>
+        <div style="height:8px;"></div>
+        <h3>Threat Detection & Remediation</h3>
+        <ul>
+            <li>User & Group Auditing: verify authorized users, administrators, and groups; check account security
+                (passwords, logon scripts, attack vulnerability, and more).</li>
+            <li>Service Auditing: scan active system services, disabling all known-vulnerable services while enabling
+                critical ones (according to user configuration).</li>
+            <li>File Permission Auditing: scan important system files (such as those containing authentication details)
+                to ensure access control is secure.</li>
+            <li>Windows Firewall Hardening: enable Windows Firewall and set inbound/outbound rules in accordance with
+                user configuration to harden network endpoints.</li>
+        </ul>
+        <div style="height:8px;"></div>
+        <h3>Policy Compliance & Enforcement</h3>
+        <ul>
+            <li>Group Policy Configuration: import pre-configured Local Group Policy Object (LGPO) to set in bulk
+                important security and system policies.</li>
+            <li>Windows Registry Configuration: set specific registry keys by automatically interpreting configuration
+                files or through manual input</li>
+            <li>Windows Update Enforcer: quickly check for, download, and install Microsoft Windows updates through from
+                command line.</li>
+            <li>Inline PowerShell Script Execution: quickly execute miscellaneous PowerShell scripts stored in
+                /configs/powershell/.</li>
+        </ul>
+
+        <h2>Demonstration</h2>
+        <p>Though CyberSentinel's code is currently closed-source due to development and disclosure restraints, it will
+            be made public sometime in the near future. Until then, feel free to check out the below examples of
+            CyberSentinel's functionality!</p>
+
+        <img src="img/cybersentinel.png" alt="Screenshot: launch">
+        <p class="caption">CyberSentinel at launch (with its command reference showing all available modules).</p>
+
+        <img src="img/cs_auto.png" alt="Screenshot: automatic configuration mode">
+        <p class="caption">CyberSentinel's automatic configuration mode, allowing it to parse a text file with
+            pre-configured commands.</p>
+
+        <img src="img/cs_services.png" alt="Screenshot: service audit">
+        <p class="caption">CyberSentinel's service audit functionality, allowing it to read from a configuration file of
+            services to enable or disable.</p>
+    </div>
+
+    <!-- bootstrap 5.1.3 js (with popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"
+        defer></script>
+</body>
+
+</html>
