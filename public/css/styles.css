@@ -326,17 +326,13 @@ WORKS SECTION (W/ CARDS)
 	border-radius: 8px;
 }
 
-#aftermath {
-	background-image: url(/img/aftermath.png);
-}
-
-#cybersentinel {
-	background-image: url(/img/cybersentinel.png);
+#stockradar {
+	background-image: url(/img/stockradar.png);
 	background-position: top left;
 }
 
-#trivia {
-	background-image: url(/img/trivia.png);
+#aftermath {
+	background-image: url(/img/aftermath.png);
 }
 
 #gpacalc {
@@ -346,6 +342,10 @@ WORKS SECTION (W/ CARDS)
 
 #valentinectf {
 	background-image: url(/img/valentinectf.png);
+}
+
+#trivia {
+	background-image: url(/img/trivia.png);
 }
 
 /* -------------------------

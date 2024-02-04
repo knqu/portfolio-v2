@@ -161,7 +161,7 @@ contactForm.addEventListener('submit', function (e) {
 // open works card links on click
 
 const worksCards = document.querySelectorAll('.cardInner');
-const worksUrls = ['https://aftermath.kevinqu.com', 'https://kevinqu.com/cybersentinel', 'https://knqu.github.io/ap-european-history-trivia', 'https://github.com/knqu/gpacalc', 'https://ctf.kevinqu.com'];
+const worksUrls = ['https://stockradar.kevinqu.com', 'https://aftermath.kevinqu.com', 'https://github.com/knqu/gpacalc', 'https://ctf.kevinqu.com', 'https://knqu.github.io/ap-european-history-trivia'];
 
 for (let i = 0; i < worksCards.length; i++) {
     worksCards[i].addEventListener('click', function () {
