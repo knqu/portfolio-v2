@@ -138,10 +138,6 @@ app.get('/privacy', function (req, res) {
     res.render('privacy');
 });
 
-app.get('/cybersentinel', function (req, res) {
-    res.render('cybersentinel');
-});
-
 app.use(function (req, res) {
     res.status(404);
     res.render('status', { status: '404', title: 'Error' });
