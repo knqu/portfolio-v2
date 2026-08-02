@@ -30,7 +30,7 @@ GLOBAL
 }
 
 body {
-	font-family: 'Poppins';
+	font-family: 'Manrope';
 	font-kerning: none;
 	line-height: 1.4;
 	background: var(--darkBlack);
@@ -54,6 +54,7 @@ h1 {
 	font-family: 'Encode Sans SC';
 	font-weight: 700;
 	font-size: 86px;
+	letter-spacing: -6px;
 	user-select: none;
 	background: var(--blurpleGradient);
 	-webkit-text-fill-color: transparent;
