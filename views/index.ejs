@@ -8,15 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Kevin Qu | Portfolio</title>
-    <meta name="description"
-        content="I'm a computer science student at Purdue interested in software engineering and machine learning.">
+    <meta name="description" content="CS @ Purdue, interested in backend & distributed systems programming">
     <meta name="author" content="Kevin Qu">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://kevinqu.com">
 
     <meta property="og:title" content="Kevin Qu | Portfolio">
-    <meta property="og:description"
-        content="I'm a computer science student at Purdue interested in software engineering and machine learning.">
+    <meta property="og:description" content="CS @ Purdue, interested in backend & distributed systems programming">
     <meta property="og:url" content="https://kevinqu.com">
     <meta proprety="og:type" content="website">
     <meta property="og:locale" content="en_US">
@@ -132,8 +130,7 @@
             <div class="container">
                 <div id="landingText">
                     <h1>Hi, I'm Kevin</h1>
-                    <p id="intro">CS @ Purdue, interested in backend & distributed systems programming
-                    </p>
+                    <p id="intro">CS @ Purdue, interested in backend & distributed systems programming</p>
                     <!-- when updating intro text, make sure to also update meta descriptions -->
                     <button id="exploreBtn">Explore</button>
                     <noscript><button id="jsDisabledExploreBtn">JS Disabled</button></noscript>
@@ -173,45 +170,28 @@
                 <h2>works</h2>
 
                 <div class="row" id="worksRow1">
-                    <div class="card col-lg-6">
+                    <div class="card col-lg-4">
+                        <div class="cardInner">
+                            <div id="goexchange" class="card-body thumbnail"></div>
+                            <div class="card-body">
+                                <h3 class="card-title">GoExchange</h3>
+                                <p class="card-text">GoExchange is a stock exchange simulator built in Go, populated by
+                                    AI trading agents who consume market data via WebSocket and
+                                    communicate trades over gRPC. Per-symbol matching engines run as
+                                    goroutines.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card col-lg-4">
                         <div class="cardInner">
                             <div id="stockradar" class="card-body thumbnail"></div>
                             <div class="card-body">
                                 <h3 class="card-title">StockRadar</h3>
-                                <p class="card-text">StockRadar is a web platform providing real-time tracking of
-                                    stock data and news, consolidated within an intuitive and modern UI. Users can
-                                    monitor the possible upside of stocks within their portfolio using a growth
-                                    potential composite, calculated from a custom set of weights.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card col-lg-6">
-                        <div class="cardInner">
-                            <div id="aftermath" class="card-body thumbnail"></div>
-                            <div class="card-body">
-                                <h3 class="card-title">Aftermath</h3>
-                                <p class="card-text">Aftermath was my first long-term project in game development,
-                                    utilizing the PhaserJS HTML5 framework. It's a top-down pixelated RPG where the
-                                    player assumes the role of a hero tasked with battling multiple waves of enemy
-                                    knights, each with varying attributes and abilities.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" id="worksRow2">
-                    <div class="card col-lg-4">
-                        <div class="cardInner">
-                            <div id="gpacalc" class="card-body thumbnail"></div>
-                            <div class="card-body">
-                                <h3 class="card-title">GpaCalc</h3>
-                                <p class="card-text">GpaCalc is a Python tool enabling students to easily calculate
-                                    their GPA (weighted and unweighted) through a colorful and intuitive command-line
-                                    interface. It offers many features, such as the ability to export a GPA table into
-                                    an external spreadsheet file.
+                                <p class="card-text">StockRadar is a web platform that helps users track stock data and
+                                    news in real time. Users can monitor the possible upside of stocks in their
+                                    portfolio using a growth composite score derived from various financial ratios.
                                 </p>
                             </div>
                         </div>
@@ -219,27 +199,13 @@
 
                     <div class="card col-lg-4">
                         <div class="cardInner" id="lastCard">
-                            <div id="valentinectf" class="card-body thumbnail"></div>
+                            <div id="aftermath" class="card-body thumbnail"></div>
                             <div class="card-body">
-                                <h3 class="card-title">Valentine's Day CTF</h3>
-                                <p class="card-text">This site hosts the web challenges I developed for my
-                                    school's CTF event promoting cybersecurity awareness. Featuring 4 challenges of
-                                    increasing difficulty, it covers various topics like command injection, cookie
-                                    stealing, and network requests.
+                                <h3 class="card-title">Aftermath</h3>
+                                <p class="card-text">Aftermath is a top-down RPG where players assume the role
+                                    of a hero tasked with battling enemy knights in melee combat. Each round brings new
+                                    enemies of varying attributes and abilities, including a superpowered final boss.
                                 </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card col-lg-4">
-                        <div class="cardInner">
-                            <div id="trivia" class="card-body thumbnail"></div>
-                            <div class="card-body">
-                                <h3 class="card-title">European History Trivia</h3>
-                                <p class="card-text">AP European History Trivia is a web game quizzing players on
-                                    topics spanning multiple time periods throughout the history of Europe. It features
-                                    a smooth and easy-to-use user interface enhanced with interactive animations created
-                                    using the GSAP library.</p>
                             </div>
                         </div>
                     </div>

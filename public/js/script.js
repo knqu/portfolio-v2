@@ -86,15 +86,14 @@ window.addEventListener('load', function () {
         }
     }).from('#worksRow1', preset);
 
-    const worksRow2Tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: '#worksRow2',
-            start: 'top 80%',
-            end: 'bottom 20%',
-            scrub: false
-        }
-    }).from('#worksRow2', preset);
-
+    // const worksRow2Tl = gsap.timeline({
+    //     scrollTrigger: {
+    //         trigger: '#worksRow2',
+    //         start: 'top 80%',
+    //         end: 'bottom 20%',
+    //         scrub: false
+    //     }
+    // }).from('#worksRow2', preset);
 
     const contactTl = gsap.timeline({
         scrollTrigger: {
@@ -161,7 +160,7 @@ contactForm.addEventListener('submit', function (e) {
 // open works card links on click
 
 const worksCards = document.querySelectorAll('.cardInner');
-const worksUrls = ['https://stockradar.kevinqu.com', 'https://aftermath.kevinqu.com', 'https://github.com/knqu/gpacalc', 'https://ctf.kevinqu.com', 'https://knqu.github.io/ap-european-history-trivia'];
+const worksUrls = ['https://github.com/knqu/goexchange', 'https://stockradar.kevinqu.com', 'https://aftermath.kevinqu.com'];
 
 for (let i = 0; i < worksCards.length; i++) {
     worksCards[i].addEventListener('click', function () {

@@ -244,9 +244,9 @@ ABOUT SECTION
 WORKS SECTION (W/ CARDS)
 ------------------------- */
 
-#works .row:first-of-type {
+/* #works .row:first-of-type {
 	margin-bottom: 22px;
-}
+} */
 
 #works .card {
 	background: none;
@@ -327,6 +327,11 @@ WORKS SECTION (W/ CARDS)
 	border-radius: 8px;
 }
 
+#goexchange {
+	background-image: url(/img/goexchange.jpg);
+	background-position: top left;
+}
+
 #stockradar {
 	background-image: url(/img/stockradar.png);
 	background-position: top left;
@@ -334,19 +339,6 @@ WORKS SECTION (W/ CARDS)
 
 #aftermath {
 	background-image: url(/img/aftermath.png);
-}
-
-#gpacalc {
-	background-image: url(/img/gpacalc.png);
-	background-position: center center;
-}
-
-#valentinectf {
-	background-image: url(/img/valentinectf.png);
-}
-
-#trivia {
-	background-image: url(/img/trivia.png);
 }
 
 /* -------------------------
